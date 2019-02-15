@@ -45,7 +45,7 @@ public class Lotto {
 		numbers = new int[6];
 	}
 
-	public void show_menu() {
+	public void show_menu() { // 첫 메뉴 출력
 
 		do {
 			try {
@@ -53,7 +53,6 @@ public class Lotto {
 				System.out.println("***로또 프로그램***");
 				System.out.println("1. 로또 룰렛 돌리기");
 				System.out.println("2. 화면에 로또 번호 출력 ");
-				System.out.println("3. 로또 평균 확인");
 				System.out.println("3. 시스템 종료");
 				System.out.print("메뉴 선택 : ");
 
@@ -61,19 +60,15 @@ public class Lotto {
 				switch (menu) {
 				case 1:
 					do {
-						selectBasicLottoNumber();
+						selectBasicLottoNumber(); //일단 한번 로또번호 출력
 
-					}while(!checkAverage(numbers));
+					}while(!checkAverage(numbers)); // sum이 150 이하가 아니거나 sum % 5 != 0일때 다시 뽑기
 					showLottoNumber();
 					break;
 				case 2:
 					showLottoNumber();
 					break;
-				case 3:
-					checkAverage(numbers);
-					showLottoNumber();
-					break;
-				case 4 :
+				case 3 :
 					return;
 				}
 			} catch (Exception e) {
@@ -84,7 +79,7 @@ public class Lotto {
 
 	}
 
-	private void selectBasicLottoNumber() {
+	private void selectBasicLottoNumber() { // 중복값 제거하는 함수
 		// 실로또 번호 추출하고 중복값 배제 처리 하는 함수
 		for (int i = 0; i < numbers.length; i++) {
 			numbers[i] = (int) (Math.random() * 45 + 1);
@@ -96,7 +91,7 @@ public class Lotto {
 
 			}
 		}
-		for (int i = 0; i < numbers.length; i++) {
+		for (int i = 0; i < numbers.length; i++) { //오름차순 정렬
 			for (int j = i + 1; j < numbers.length; j++) {
 				if (numbers[i] > numbers[j]) {
 					int temp = numbers[i];
@@ -108,7 +103,7 @@ public class Lotto {
 
 	}
 
-	private void showLottoNumber() {
+	private void showLottoNumber() { //뽑은 Lotto 번호 출력하는 함수
 		for (int i = 0; i < numbers.length; i++) {
 			System.out.print("[" + numbers[i] + "]");
 		}
@@ -125,7 +120,7 @@ public class Lotto {
 		if(sum % 5 ==0 && sum<150)
 			selectBasicLottoNumber();
 		
-	 return (sum % 5 != 0&& sum<150);
+	 return (sum % 5 != 0&& sum<150); // sum % 5가 0이 아니거나 sum<150 일때 return
 	}
 	
 }

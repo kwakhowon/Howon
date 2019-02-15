@@ -38,6 +38,7 @@ public class Ex04_Object_Array {
 			System.out.println(objarr[i].name +"/" +objarr[i].age);
 		}
 		
+		//1. int[] arr = new int[5]
 		Person[] parray = new Person[5];
 		for(int i =0; i<parray.length; i++) {
 			parray[i] = new Person();

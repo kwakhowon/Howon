@@ -24,41 +24,66 @@ class Human {
 	int age;
 }
 
-class OverTest{
-	
+class OverTest {
+
 	void add(Human h) {
 		h.name = "홍길동";
 		h.age = 100;
 		System.out.println(h);
 	}
-	
-	int add(int i) { 
+
+	int add(int i) {
 		return 100 + i;
 	}
-	
+
 	String add(String s) {
 		return "hello" + s;
 	}
-	
-	
-	//void add(int k) {} 안되요(parameter type 충돌)
-	
-	int add(int i , int j) {
+
+	// void add(int k) {} 안되요(parameter type 충돌)
+
+	int add(int i, int j) {
 		return i + j;
 	}
-	
-	void add(int i , String s) {
+
+	void add(int i, String s) {
 		System.out.println("오버로딩");
 	}
-	
-	void add(String s , int i) { //순서가 다름을 인정
-		System.out.println("순서 인정 : overloading" );
+
+	void add(String s, int i) { // 순서가 다름을 인정
+		System.out.println("순서 인정 : overloading");
+	}
+
+	// 배열(Array)배웠으니
+	// 초초중급 ....
+	// int[] source = {1,2,3,4,5};
+	int[] add(int[] param) { // parameter 로 int 배열의 주소값을 받겠다
+		int[] target = new int[param.length];
+		for (int i = 0; i < param.length; i++) {
+			target[i] = param[i] + 1;
+		}
+		return target; // int 타입의 배열의 주소값을 return
+	}
+
+	int[] add(int[] so , int[] so2) {
+		//마음대로 코드를 써봐라 (error 만 없으면 됩니다.
+		int[] target = new int [so.length];
+		for(int i= 0; i < so.length; i++) {
+			target[i] = so[i]+5;
+		}
+		
+		int[] target2 = new int [so2.length];
+		for(int i=0; i<so2.length; i++) {
+			target2[i] = so2[i] * 3;
+		}
+		return target2;
+		
 	}
 }
 
 public class Ex11_method_overloding {
 	public static void main(String[] args) {
-		System.out.println(100);
+		/*System.out.println(100);
 		System.out.println("HELLO");
 		
 		OverTest ot = new OverTest();
@@ -73,5 +98,21 @@ public class Ex11_method_overloding {
 		System.out.println(human.age);
 		
 		ot.add(new Human());
+	*/
+		
+		OverTest ot = new OverTest();
+		//int 타입의 배열의 주소를 주어야 ....
+		int[] source = {10,20,30,40,50};
+		System.out.println(source);
+		int[] target = ot.add(source); // [I@15db9742 주소값
+		for(int i = 0 ; i<target.length; i++) {
+			System.out.println(target[i]);
+		}
+		int[] so = {10 , 20 , 30, 40, 50};
+		int[] so2 = {55, 66 , 77, 88, 99};
+		ot.add(so, so2);
+		for(int i = 0; i<so.length; i++) {
+			System.out.println(so[i]);
+		}
 	}
 }
