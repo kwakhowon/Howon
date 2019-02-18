@@ -79,6 +79,13 @@ class OverTest {
 		return target2;
 		
 	}
+	Human[] add(Human[] human) {
+		//............
+		Human[] h = new Human[human.length];
+		//..............
+		
+		return h;
+	}
 }
 
 public class Ex11_method_overloding {

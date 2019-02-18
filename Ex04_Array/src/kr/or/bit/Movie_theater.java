@@ -129,11 +129,6 @@ public class Movie_theater {
 			}
 			System.out.println();
 		}
-		System.out.print("예약된 좌석 : ");
-		for (int i = 0; i < seats.length; i++) {
-			for (int j = 0; j < seats[i].length; j++) {
-			}
-		}
 
 	}
 
@@ -148,10 +143,6 @@ public class Movie_theater {
 	}
 
 	private void cancelSeats() {
-		if(reservationSeats == 0) {
-			System.out.println("예매된 좌석이 없습니다.");
-			return;
-		}
 		if (seats[inputRowsInt][inputNum2 - 1] == "X") {
 			seats[inputRowsInt][inputNum2 - 1] = String.valueOf(inputNum2);
 			System.out.println("\n@@@@@@@@ 좌석예약을 취소했습니다 @@@@@@@@\n");
@@ -194,6 +185,10 @@ public class Movie_theater {
 
 	private void inputSeat(int menu) {
 		try {
+			if(menu == 3 && reservationSeats==0) {
+				System.out.println("예매된 좌석이 없습니다");
+				return;
+			}
 			displayMenu();
 			switch (inputRows) {
 			case "A":
@@ -233,10 +228,6 @@ public class Movie_theater {
 					changeSeats();
 					break;
 				} else if (menu == 3) {
-					if(reservationSeats == 0) {
-						System.out.println("예매된 좌석이 없습니다.");
-						return;
-					}
 					cancelSeats();
 					break;
 				}
@@ -246,7 +237,7 @@ public class Movie_theater {
 				if (menu == 2) {
 					changeSeats();
 					break;
-				} else if (menu == 3 && reservationSeats==0) {
+				} else if (menu == 3) {
 					cancelSeats();
 					break;
 				}
