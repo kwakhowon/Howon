@@ -23,7 +23,6 @@ public class Ex02_POINT_File_Read_Write {
 				System.out.println((char)data);
 			}
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			fs.close(); //정상적인 종료 , 비정상종료 파일 닫기

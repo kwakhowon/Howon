@@ -1,0 +1,2 @@
+hello= C:\Temp\hi.txt
+hello= C:\Temp\new.txt

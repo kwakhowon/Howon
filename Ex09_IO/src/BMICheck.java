@@ -39,6 +39,12 @@ public class BMICheck {
 		}//while
 	}// main
 
+	private void add() {
+		BMI bmi = new BMI();
+		map.put(count, bmi.input(bmi));
+		count++;
+	}
+
 	private void save() {
 		File file = new File("bmi.txt");
 		try{
@@ -86,21 +92,17 @@ public class BMICheck {
 		}
 	}
 
-	private void add() {
-		BMI bmi = new BMI();
-		map.put(count, bmi.input(bmi));
-		count++;
-	}
 	
 	private void load() {
 		File file = new File("bmi.txt");
 		try{
 			FileInputStream fis = new FileInputStream(file);
 			ObjectInputStream oos = new ObjectInputStream(fis);
-			
+			System.out.println(map);
 			map = (HashMap)oos.readObject();
 			
 			Set<Integer> set = map.keySet();
+			System.out.println(map.keySet());
 			System.out.println("번호\t키\t몸무게\t결과\t판정");
 			for (Integer number : set) {
 				double length = map.get(number).getLength();

@@ -25,6 +25,6 @@ public class Ex07_File_Directory {
 		System.out.println("파일 존재 여부 : " +f.exists());
 		//f.createNewFile() 파일생성
 		//f.delete() 파일삭제
-		f.canExecute(); //쓰기 가능하니
+		f.canExecute(); //실행 가능하니
 	}
 }

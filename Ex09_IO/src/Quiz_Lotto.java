@@ -134,7 +134,7 @@ public class Quiz_Lotto {
 		File file = null;
 		String path = "./lottoLog.txt";
 		file = new File(path);
-		if(file.exists()) {
+		if(!file.exists()) {
 			file = new File("./"+lottoCount+"times lottoLog("+this.nameCount+").txt");
 			this.nameCount++;
 		}

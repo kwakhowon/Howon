@@ -9,23 +9,23 @@ import java.io.PrintWriter;
 public class Ex11_PrintWriter {
 	public static void main(String[] args) throws IOException {
 		try {
-			/*
-			PrintWriter pw = new PrintWriter("C:\\Temp\\homework.txt");
-			//파일이 없다면 생성 , 있다면 ... overwrite
+
+			PrintWriter pw = new PrintWriter("C:\\Temp\\homework.txt"); // 파일이 없다면 생성 ,
+			// 있다면 ... overwrite
 			pw.println("*************************************************");
 			pw.println("********************HOMEWORK*********************");
 			pw.println("*************************************************");
-			pw.printf("%3s  :  %5d  %5d  %5d  %5.1f", "아무개",10,90,88,((float)(10+90+88)/3));
+			pw.printf("%3s  :  %5d  %5d  %5d  %5.1f", "아무개", 10, 90, 88, ((float) (10 + 90 + 88) / 3));
 			pw.println();
 			pw.close();
-			*/
-			//read (Line단위) >> buffered....
+
+			// read (Line단위) >> buffered....
 			FileReader fr = new FileReader("C:\\Temp\\homework.txt");
 			BufferedReader br = new BufferedReader(fr);
-			String s ="";
-			while((s = br.readLine()) !=null) {
+			String s = "";
+			while ((s = br.readLine()) != null) {
 				System.out.println(s);
-				
+
 			}
 			br.close();
 			fr.close();

@@ -1,4 +1,5 @@
 import java.io.FileReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 
 //문제점
