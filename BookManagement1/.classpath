@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="BookManagement1/src"/>
+	<classpathentry kind="lib" path="__MACOSX/BookManagement1/lib/._jsoup-1.11.3-sources.jar"/>
+	<classpathentry kind="lib" path="__MACOSX/BookManagement1/lib/._jsoup-1.11.3.jar"/>
+	<classpathentry kind="lib" path="__MACOSX/BookManagement1/lib/._poi-4.0.1.jar"/>
+	<classpathentry kind="lib" path="__MACOSX/BookManagement1/lib/._poi-examples-4.0.1.jar"/>
+	<classpathentry kind="lib" path="__MACOSX/BookManagement1/lib/._poi-excelant-4.0.1.jar"/>
+	<classpathentry kind="lib" path="__MACOSX/BookManagement1/lib/._poi-ooxml-4.0.1.jar"/>
+	<classpathentry kind="lib" path="__MACOSX/BookManagement1/lib/._poi-ooxml-schemas-4.0.1.jar"/>
+	<classpathentry kind="lib" path="__MACOSX/BookManagement1/lib/._poi-scratchpad-4.0.1.jar"/>
+	<classpathentry kind="lib" path="BookManagement1/lib/jsoup-1.11.3-sources.jar"/>
+	<classpathentry kind="lib" path="BookManagement1/lib/jsoup-1.11.3.jar"/>
+	<classpathentry kind="lib" path="BookManagement1/lib/poi-4.0.1.jar"/>
+	<classpathentry kind="lib" path="BookManagement1/lib/poi-examples-4.0.1.jar"/>
+	<classpathentry kind="lib" path="BookManagement1/lib/poi-excelant-4.0.1.jar"/>
+	<classpathentry kind="lib" path="BookManagement1/lib/poi-ooxml-4.0.1.jar"/>
+	<classpathentry kind="lib" path="BookManagement1/lib/poi-ooxml-schemas-4.0.1.jar"/>
+	<classpathentry kind="lib" path="BookManagement1/lib/poi-scratchpad-4.0.1.jar"/>
+	<classpathentry kind="output" path="BookManagement1/bin"/>
+</classpath>
