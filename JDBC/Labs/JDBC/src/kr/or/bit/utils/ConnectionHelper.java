@@ -29,7 +29,7 @@ public class ConnectionHelper {
 				Class.forName("oracle.jdbc.OracleDriver");
 				conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","bituser","1004");
 			}else if(dsn.equals("mysql")){
-				Class.forName("oracle.jdbc.OracleDriver");
+				Class.forName("oracle.mysql.jdbc.Driver");
 				conn = DriverManager.getConnection(
 						"jdbc:mysql://localhost:3306/sampledb?characterEncoding=UTF-8&serverTimezone=UTC&useSSL=true",
 						"root", "1004");

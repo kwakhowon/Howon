@@ -1,4 +1,4 @@
-package kr.or.bit.utils;
+package UTILS;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,7 +14,7 @@ public class SingletonHelper {
 
     public static Connection getConnection(String dsn) {
         if(conn != null) {
-            System.out.println("conn is not null");
+            //System.out.println("conn is not null");
             return conn;
         }
         try {
@@ -29,6 +29,7 @@ public class SingletonHelper {
         }catch(Exception e) {
             System.out.println(e.getMessage());
         }
+        //System.out.println("conn return");
         return conn;
     }
 

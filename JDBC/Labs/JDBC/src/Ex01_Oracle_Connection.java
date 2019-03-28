@@ -52,16 +52,16 @@ public class Ex01_Oracle_Connection {
 		System.out.println("오라클 드라이버 로딩");
 		
 		//getConnection Connection 구현한 객체의 주소값 return
-		 Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","bituser","1004");
-		 System.out.println(conn.isClosed()+"정상 (False)");
+		Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","bituser","1004");
+		System.out.println(conn.isClosed()+" 정상 (False)");
 		 
 		 Statement stmt = conn.createStatement();
 		 
-		 //CRUD q
-		 String sql = "select empno, ename , sal from emp";
+		//CRUD 
+		String sql = "select empno, ename , sal from emp";
 		 
-		 ResultSet rs = stmt.executeQuery(sql); //실행결과 반환 받기
-		 while(rs.next()) {
+		ResultSet rs = stmt.executeQuery(sql); //실행결과 반환 받기
+		while(rs.next()) {
 			 System.out.println(rs.getInt("empno") + "/" +
 					 			rs.getString("ename") + "/"+
 					 			rs.getInt("sal"));
