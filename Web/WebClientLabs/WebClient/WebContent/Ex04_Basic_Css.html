@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+	/* 가상 클래스 선택자 : link , visited 의미론적으로 존재 */
+		a:link {
+		  color: green; 
+		  background-color: transparent; 
+		  text-decoration: none;
+		}
+		
+		a:visited {
+		  color: pink;
+		  background-color: transparent;
+		  text-decoration: none;
+		}
+		
+		a:hover {
+		  color: red;
+		  background-color: transparent;
+		  text-decoration: underline;
+		}
+		
+		a:active {
+		  color: yellow;
+		  background-color: transparent;
+		  text-decoration: underline;
+		}
+		
+		h3{color : red}
+		/* 
+		css 기본 존재하는 태그에만 적용 가능 합니까 : 아니요 ......
+		h1 , p , h3 , div , 
+		p{}
+		h3{}
+		: css 에서는 태그들을 selector(선택자) 기존에 있는 태그
+		
+		*선택자(selector) 개발자가 정의해서 사용 가능
+		(#선택자 , .선택자)
+		
+		.A >> class = A
+		#B >> id = B
+		
+		*/
+		#kglim{color:gold}
+		.hong{color:green}
+		/* 다중 선택자 */
+		h1 , h2 , p {text-align: center; color : blue}
+</style>
+	
+</head>
+<body>
+	<a href = "http://www.lg.co.kr">LG 사이트</a>
+	<h3>자동 CSS 적용</h3>
+	<P id="kglim">id라는 속성을 사용해서 CSS 적용</P>
+	<p class="hong">class 라는 속성을 사용해서 적용</p>
+	<!-- 
+		CSS 사용자 정의 : id , class 사용
+		CSS , JavaScript , Jquery 모든 활용 .....
+	 -->
+</body>
+</html>
