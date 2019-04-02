@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>개발자 필수 태그(암기)</title>
+</head>
+<body>
+	<form action="Ex13_Login.jsp" method="get">
+	<input type="text" name ="userId">
+	<input type="password" name ="userPwd">
+	
+	<!-- <input type="submit" value="전송"> -->
+	<input type = "image" src = "images/바나나.jpg" width="100px" height="100px">
+	<input type="reset" value="취소">
+	</form>
+	
+	<h3>로그인</h3>
+	<a href="Ex13_Login.jsp?userId=hong&userPwd=1111">로그인 클릭</a>
+	<!-- 
+	1. form 태그는 전송을 담당하는 태그 (교통수단)
+	   (웹서버(Tomcat) 데이터 전송0
+	   네이버 >> 회원가입 버튼 >> 정보 입력 >> 전송
+	  >> 서버에 데이터 받기(JSP , Servlet) >> DB연결 >> Insert >> 완료
+	
+	
+	form 교통수단
+	두가지 : 배(method="get")             ,          비행기(method="post")
+	목적지 : Ex13_Login.jsp (서버에 Page 주소)
+	get : http://localhost:8090/WebClient/Ex13_Login.jsp?userId=as&userPwd=as
+	post : http://localhost:8090/WebClient/Ex13_Login.jsp
+			(http 프로토콜 내부(header) 에 정보를 숨겨서 전송
+			
+	2. form 교통수단 (기사) : submit
+		1. input type = "submit" 전송 담당
+		2. input type = "image" 내부적으로 submit
+		3. input type = "button" >> javascript (document.form.submit() 호출해야 된다)
+		
+		
+		3. form 태그에서 get 방식은 불필요(link 통한 방식(get))
+		   배를 타고 여행 .....
+		   <a href="board.jsp?num=100">글 상세보기</a>
+		   링크통해서 서버에 데이터 전송 (get 방식) ......
+		   get > jsp?변수=데이터&변수2=데이터2...... 
+	 -->
+</body>
+</html>

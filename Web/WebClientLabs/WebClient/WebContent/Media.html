@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>동물 소리 공부하기</title>
+  <link rel="stylesheet" href="media.css">
+  <style type="text/css">
+  body {
+  margin: 0;
+}
+
+header {
+  background-color: #f4b942;
+  color: #0B1761;
+  padding: 25px;
+}
+
+.side {
+  float: left;
+  width: 15%;
+}
+
+header h1 {
+  text-align: center;
+}
+
+header p {
+  text-align: center;
+}
+
+aside {
+  float: left;
+  width: 20%;
+  margin: 0;
+}
+
+aside ul {
+  list-style-type: none;
+  padding-left: 15px;
+}
+
+article {
+  float: left;
+  width: 50%;
+  margin: 0;
+}
+
+#animalBox {
+  border: 2px solid black;
+  height: 100px;
+  width: 100px;
+  margin-left: 45%;
+}
+
+#animalName {
+  width: 80px;
+  margin-left: 47.5%;
+  text-align: center;
+}
+
+#replay {
+  background-color: #f4b942;
+  border: 2px solid black;
+  margin-left: 47.5%;
+}
+
+audio {
+  display: none;
+}
+
+footer {
+  background-color: #f4b942;
+  clear: both;
+}
+
+footer p {
+  color: #0B1761;
+  margin: 0;
+  padding: 8px;
+  text-align: center;
+}
+  </style>
+  
+  <script>
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+</script>
+</head>
+
+<body>
+  <header>
+    <h1>어떤 소리를 낼까요?</h1>
+    <p>마우스로 동물을 상자에 넣으면 소리가 나와요</p>
+  </header>
+  <div class="side">&nbsp;</div>
+  <aside>
+    <ul>
+      <li><img src="https://img.icons8.com/color/48/000000/pig.png" id = "drag1" draggable="true" value="pig"></li>
+      <li><img src="https://img.icons8.com/color/48/000000/bird.png" id="drag1" draggable="true" value="bird"></li>
+      <li><img src="https://img.icons8.com/color/48/000000/sheep.png" id = "drag1" draggable="true" value="sheep"></li>
+      <li><img src="https://img.icons8.com/color/48/000000/cat.png" id = "drag1" draggable="true" value="cat"></li>
+    </ul>
+  </aside>
+  <article>
+    <div id="animalBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+    <h2 id="animalName">고양이</h2>
+    <h2 id = "cat"> </h2>
+    <input id="replay" type="button" value="다시 듣기">
+    <audio src="wave.ogg" type="audio/ogg"></audio>
+  </article>
+  <div class="side">&nbsp;</div>
+  <footer>
+    <p>2019 비트캠프 3조 제작</p>
+  </footer>
+</body>
+
+</html>

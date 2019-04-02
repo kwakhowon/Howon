@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScript</title>
+<script type="text/javascript">
+	//JavaScript 해석 , 결과 출력(웹 브라우저)
+	//웹 브라우저( 해석기 + script API 지원)
+	//웹 브라우저가 내장 객체를 가지고 있다.
+	//window 객체
+	//JAVA : system.out.println()
+	window.document.write("출력하기<br>");
+	document.write("window 객체 생략 출력하기<br>");
+	
+	console.log("웹 브라우저 출력창 제공");
+	console.log("웹 브라우저 cmd 창에 원하는 결과 확인");
+	console.log("디버깅 , 결과확인 , 오류메세지 확인");
+	
+	document.write("<br><b>Hello World</b><br>");
+	document.write("<table border='1'>");
+	document.write("<tr><td>AA</td><td>BB</td><td>CC</td></tr>");
+	document.write("</table>");
+	//console.log() 검증 데이터
+	console.log(100+200);
+	
+	//원인 : javascript 순차적 실행 (아래 코드가 실행될 때 )
+	//<Form 태그는 로드되지 않았다.
+	//Cannot read property 'elements' of undefined
+	//var element = window.document.forms[0].elements[0];
+	//console.log(element);
+	
+	// 1. 해결방법 : script 태그  body 뒤로 .... form 로드 ... script read
+	// 2. 해결방법 : function call()
+	
+	function data(){ //read 하는 안쪽 코드는 실행 안해요 >> 호출 되어야만 실행
+		var element = window.document.forms[0].elements[0];
+		console.log(element);
+	}
+</script>
+</head>
+<body>
+	<form action="#" method="get" name="myform">
+		ID : <input type="text" value="hong gil" name="userid"><br>
+		PWD : <input type ="password" name="pwd">
+		<input type="submit" value="전송">
+		
+	</form>
+	<div style="background-color: gold; width: 200px; height: 150px"
+	onmouseover="this.style.backgroundColor='gray'" 
+	onmouseout="this.style.backgroundColor='gold'">
+		현재 javascript 수업중 ... this 현재 div 태그를 지칭한다.
+	</div>
+	
+	<input type="button" value ="클릭해봐" onclick="data()">
+</body>
+<script type="text/javascript">
+ //시점 : form ㅌ채그가 브라우저에 로드 되고 나서 ....
+var element = window.document.forms[0].elements[0];
+console.log(element); // <input type="text" value="hong" name="userid">
+console.log(element.value); // hong
+console.log(element.value.length);
+
+  //웹 브라우저는 이미 만들어진 내장객체를 가지고 있다.
+  window.alert("정상");
+  
+  //객체의 계층
+  //form 태그가 name 속성을 가지고 있다면(name = "myform")
+  //window.document.폼이름.요소이름
+  //window.document.폼이름.요소이름.value
+  
+  var ele = window.document.myform.userid;
+  console.log(ele);
+  var value = window.document.myform.userid.value;
+  console.log("input 태그 : " +ele);
+  console.log("input 태그 값 : " +value);
+  
+  if(value.length <5){
+	  alert("다시 입력하세요");
+	  ele.value ="";
+  }
+</script>
+</html>

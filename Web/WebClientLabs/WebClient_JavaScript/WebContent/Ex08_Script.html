@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript 유효성 검증</title>
+	<script type="text/javascript">
+	/*  
+	유효성 검증
+	입력 -> 입력한 데이터 서버 전송 -> 서버 검증 -> 클라이언트 전달(응답) -> 처리
+	>> 라운드 트립 : 네트워크 트래픽 증가
+	>> 서버의 부담을 줄이고 서버에서 검증할 필요가 없는 데이터는
+	>> 클라이언트 브라우저에서 처리 -> 검증완료 -> 서버로 전송
+	*/
+	function send(){
+		// 1. txtuserid input 입력값을 가지고 와서 검증
+		// var txtuserid = document.forms[0].elements[0]
+		// 위 코드처럼 하지 않으려면 
+		// 1. form name 속성이 있고 , input name 속성
+		var userid = document.loginform.txtuserid;
+		console.log(userid); //<input type="text" name= "txtuserid">
+		console.log(userid.value);
+		
+		var userpwd = document.loginform.txtpwd;
+		console.log(userpwd);
+		console.log(userpwd.value);
+		
+		//검증 ..... 나의 마음
+		if(userid.value == "" || !(userid.value.length>=3 && userid.value.length<=10)){
+			alert("아이디를 다시 입력하세요.");
+			document.loginform.txtuserid.focus();
+			//userid.focus();
+			userid.select();
+		}else{
+			alert("검증완료");
+			
+			//전송하는 코드
+			document.loginform.action="Ex09_login.jsp";
+			document.loginform.submit(); //서버로 전송
+		}
+	}
+	</script>
+</head>
+<body>
+	<form method="get" name="loginform">
+	ID : <input type="text" name= "txtuserid"><br>
+	PWD : <input type="password" name = "txtpwd"><br>
+	<input type="button" value="전송" onclick="send()">
+	<!-- 
+	<input type="submit" value="전송">
+	<input type="image"> 
+	
+	목적지 전송 태그
+	<input type="button" value="전송"> >> 부가적인 이벤트 필요
+	-->
+	
+	</form>
+</body>
+</html>

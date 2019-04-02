@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>함수(내장함수)</title>
+	<script type="text/javascript">
+	var myTime = window.setInterval(function(){ //일회성 함수 (익명함수)
+		//javascript 객체 (Date 객체)
+		//Date d = new Date() : JAVA
+		var d = new Date();
+		var t = d.toLocaleTimeString();
+		//DOM script
+		document.getElementById("time").innerHTML = t;
+	}, 1000) //1초마다 실행
+	function myTimeStop(){
+		window.clearInterval(myTime);
+	}
+	</script>
+</head>
+<body>
+	<p id="time"></p><br>
+	<button onclick="myTimeStop()">Stop Time</button>
+</body>
+</html>

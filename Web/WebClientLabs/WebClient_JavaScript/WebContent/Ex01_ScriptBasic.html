@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>javaScript</title>
+<script type="text/javascript">
+	/*  
+		javascript 블럭주석
+		
+		javascript (언어 : Web : 코드해석(웹 브라우저) 라인단위(해석))
+		javascript (객체지향언어 : 내부적으로 (class 개념))
+		
+		javascript 사용
+		1. html의 content , attribute [변경] , [삭제] , 동적으로 [추가]할 수 있다
+		2. css content [변경] , [삭제] , [추가] 동적으로
+		3. 유효성 검증 (id 체크 , 주민번호 검증)
+		4. 동적인 웹페이지 구성
+		5. javascript 전 세계적으로 가장 많이 사용
+			(좀 더 편하게 쓸 수 없을까)
+			-javascript framework
+			>>jquery.js , angular.js , node.js(server) , vue.js , react.js
+			>>장점 : 개발시간 단축 , 유지보수
+			>>단점 : lib(종속) >> framework 을 만들 수 있는 javascript 학습 필요
+		6. 문법
+		 -1. 대소문자를 엄격하게 구분
+		 -2. 종결자 (;)
+		 -3. 타입 , 연산자 , 제어문 (참고 : java 언어와 비슷)
+		7. 사용법(CSS 동일 : common.css) 
+		 -1. in-line(태그 안쪽에 표현) >> <p onclick="alert()" ....>
+		 -2. internal >> <head><script>코드<script></head>
+		 -3. external >> (common.js) -> link 방식(제일 많이 사용)
+	*/
+	
+	//internal
+	//JAVA : public void call()
+	function call(){
+		alert('internal');
+	}
+</script>
+	<style type="text/css">
+	</style>
+	<script type="text/javascript" src="Script/common.js">
+	</script>
+</head>
+<body>
+	<h3>in-line</h3>
+	<input type="button" value="inline" onclick="alert('inline')"> 
+	<h3>internal</h3>
+	<input type="button" value="internal" onclick="call()">
+	<h3>external</h3>
+	<input type="button" value="external" onclick="excall()">
+</body>
+</html>

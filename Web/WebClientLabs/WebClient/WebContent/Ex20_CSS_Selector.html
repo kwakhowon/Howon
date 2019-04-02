@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>선택자</title>
+	<style type="text/css">
+	/* 
+		1. 기본 선택자(기존에 제공하는 태그(Tag) css)
+		 p {color : red;}
+		 h3{ color : blue}
+		 
+		 2. 다중 선택자 (grouping)
+		 p , h1 , h2, h3 {color : red;}
+		 
+		 3. 사용자 정의 CSS
+		 .mystyle{ color : gold;} : 범용적(일반적)
+		 하나의 페이지에서 같은 class ="이름" 반복적 사용 가능
+		 적용 )
+		 <p class = "mystyle">문단 태그</p>
+		 <p class = "mystyle">문단 태그2</p>
+		 <div class = "mystyle">문단 태그3</div>
+		 
+		 #youstyle{ color : pink } : 고유 , 식별값(Page 당 1개)
+		 적용)
+		 <p id = "youstyle"></p>
+		 id 속성은 Page 에서 식별자 (구분값) 으로 사용
+		 (javascript , css 활용 : front 에서 활용 : id)
+		 
+		 4. 결합형태
+		 p.one {color : red;}
+		 p.two {color : pink;}
+		 적용 )
+		 <p class ="one">red</p>
+		 <p class ="two">pink</p>
+		 
+		 5. [자손] , [후손] 선택자
+		 div p{color : green; font-family : "궁서체", "명조체", "광수체"}
+		 
+		 <div>
+		 	<p>A</p>
+		 	<p>
+		 		B
+		 		<p>C</p>
+		 	</p>
+		 </div>
+		 
+		   
+		 6. [자식] 
+		   .parent > p {boarder : 1px double blue; padding : 10px;}
+		   
+		 7. 속성 선택자(Attribute > color , font , size 속성)
+		 CSS 작업가능
+		 input[type=text] {color : red}
+		 input[type=button] { font-size : 10px}
+	*/
+	 input[type = text]{
+	 						width: 150px;
+	 						display: block;
+	 						background-color: gold
+	 					}
+	 input[type=button]{
+	 						width : 100px;
+	 						background-color: red;
+	 					}
+	 					
+	 div p {	
+	 		color : green;
+	 		font-family: "궁서체", "명조체", "광수체"
+	 		
+	 		}
+	 		
+	 .parent > p{
+	 				border: 1px solid black;
+	 				padding : 10px;
+	 				font-size : 20px
+	 			}
+	</style>
+	</head>
+<body>
+	<p>나는 스타일이 적용 될까요</p>
+	<div>
+		DIV 태그
+	</div>
+	<h3>하위(자손) 선택자</h3>
+	<div>
+		<p>선택자</p>
+		<p>선택자2</p>
+		<div>
+			<p>선택자3</p>
+		</div>
+	</div>
+		<h3>자식 선택자</h3>
+		<div class="parent">
+		<p>선택자</p>
+		<p>선택자2</p>
+		<div>
+			<p>선택자3</p>
+		</div>
+		</div>
+		<hr>
+		<input type="text" value="CSS 적용">
+		<br>
+		<input type="password" value="css">
+		<br>
+		<input type="button" value="css버튼">
+</body>
+</html>

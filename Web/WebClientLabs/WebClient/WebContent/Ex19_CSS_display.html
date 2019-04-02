@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+/* 
+visibility : hidden 과 none의 차이
+영역을 가지고 있냐 마냐의 차이
+ */
+h1.hidden {
+  visibility: hidden;
+}
+h1.hidden2 {
+  display: none;
+}
+</style>
+</head>
+<body>
+
+<h1>This is a visible heading</h1>
+<h1 class="hidden">This is a hidden heading</h1>
+<p>Notice that the h1 element with display: none; does not take up any space.</p>
+<h1 class="hidden2">This is a hidden heading</h1>
+<p>Notice that the h1 element with display: none; does not take up any space.</p>
+</body>
+</html>
