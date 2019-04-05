@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Arrays 배열</title>
+	<script type="text/javascript">
+		//while
+		var i = 1;
+		var sum = 0;
+		while(i<=10){
+			sum+= i;
+			i++;
+		}
+		document.write("sum : " +sum + "<br>");
+		
+		var sum2 = 0;
+		for(var i = 0; i<=10; i++){
+			if(i%3 == 0){
+				console.log("i : " +i);
+				continue; //아래 구문 skip
+			}
+			sum2 += i;
+		}
+		document.write("sum2 : " +sum2 + "<br>")
+		
+		var a= 1;
+		do{
+			document.write(a + "<br>");
+			a++;
+		}while(a<11);
+		//배열(암기) : KEYPOINT
+		//javascript (정적 + 동적)
+		/*  
+		JAVA
+		int[] arr = new int[10];
+		int[] arr2 = new int[]{10,20,30};
+		int[] arr3 = {10,20,30};
+		*/
+		
+		const arr = [10,20,30]; // int[] arr3 = {10,20,30};
+		for(let i=0; i<3; i++){
+			document.write(arr[i]+"<br>");
+		}
+		//javascript 배열 기본 생성
+		
+		const eng = new Array(3); //int[] arr = new int[10];
+		eng[0] = 100;
+		eng[1] = 200;
+		eng[2] = 300;
+		for(let i=0; i<eng.length; i++){
+			document.write(eng[i]+"<br>");
+		}
+		
+		//1. javascript 배열 기본 생성 (Array())
+		const array = new Array(5);
+		
+		//2. int[] arr2 = new int[]{10,20,30};
+		const array2 = new Array(10,20,30,40,50); // 권장하지 않는다.
+		
+		//3. 값으로 배열 초기화
+		const array3 = [111,222,333,444];
+	</script>
+</head>
+<body>
+
+</body>
+</html>

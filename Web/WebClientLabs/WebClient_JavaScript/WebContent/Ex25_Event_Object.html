@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var btn = document.getElementById("mybtn");
+			btn.onclick = function(event){ //이벤트가 발생되면 이벤트의 정보를 담고 있는 객체생성
+					console.log(event.type);
+					console.log(event.target);
+					console.log(event.currentTarget);
+					console.log(event.x);
+				
+			}
+			
+			var btn2 = document.getElementById("mybtn2"); 
+			var handler = function(event){ 
+				switch(event.type){ //event.type()
+					case "click": //코드 
+					alert("왜 클릭함?");
+					break; 
+					case "mouseover": //코드 
+					event.target.style.backgroundColor = "red"; 
+					break; 
+					case "mouseout": //코드 
+					event.target.style.backgroundColor = "";
+					break; 
+						} 
+					}; 
+				btn2.onclick = handler; 
+				btn2.onmouseover = handler;
+				btn2.onmouseout = handler;
+
+
+			
+		}
+	</script>
+</head>
+<body>
+	<button id="mybtn"><span>눌러봐</span></button>
+	<br>
+	<button id="mybtn2">눌러봐2</button>
+</body>
+</html>

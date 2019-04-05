@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>이벤트 핸들러</title>
+ 
+</head>
+<body>
+    <form id="frm">
+        <fieldset>
+            <legend>주소록</legend>
+            <textarea name="txt" id="txt" cols="30" rows="10"></textarea><br>
+            <input type="submit" id="q" value="불러오기">
+        </fieldset>
+    </form>
+ 
+    <script>
+        var address = ["김철수", "email: kcs@gmail.com"];
+ 
+        // 폼 객체 지정
+        var q = document.getElementById('frm');
+ 
+        function addr_search(event){
+            var textarea = q.txt;
+ 
+            // textarea에 주소록 표시
+            textarea.value = '이름 / 주소 \n';
+            textarea.value += address[0] + ', ' + address[1] + '\n';
+        }
+ 
+        // 폼 제출시
+        q.addEventListener('submit', function(event){
+            event.preventDefault();    // 기본 이벤트 해제
+            addr_search();    // 주소록 불러오기
+        });
+    </script>
+</body>
+ 
+</html>

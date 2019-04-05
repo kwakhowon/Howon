@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		var checkflag = "false"; //페이지에서 구현하는 모든 함수가 사용 >> 전역변수
+		
+		function checkForm(){
+			var list = document.myform.list; // name의 이름이 같아서 Array로 보고 모든 element를 가져온다.
+			console.log(list);
+			console.log(list.length);
+			
+			if(checkflag == "false"){
+				for(var index in list){
+					list[index].checked = true;
+					//기존 input 태그 >> checked 속성 추가
+				}
+				checkflag = "true";
+				return "[선택해제하기]";
+			}else{
+				for(var index in list){
+					list[index].checked = false;
+					//기존 input 태그 >> checked 속성 추가
+				}
+				checkflag = "false";
+				
+				return "[전체선택]";
+			}
+		}
+		//////////////////////////////////////////////////////////////////
+		var checkflag2 = "false"; //페이지에서 구현하는 모든 함수가 사용 >> 전역변수
+		
+		function checkForm2(list){
+			if(checkflag2 == "false"){
+				for(var index in list){
+					list[index].checked = true;
+					//기존 input 태그 >> checked 속성 추가
+				}
+				checkflag2 = "true";
+				return "[선택해제하기]";
+			}else{
+				for(var index in list){
+					list[index].checked = false;
+					//기존 input 태그 >> checked 속성 추가
+				}
+				checkflag2 = "false";
+				
+				return "[전체선택]";
+			}
+		}
+		
+	</script>
+</head>
+<body>
+	<form action="" name="myform">
+		좋아하는 과목은<br>
+		<input type="checkbox" name="list" value="java">JAVA<br>
+		<input type="checkbox" name="list" value="oracle">ORACLE<br>
+		<input type="checkbox" name="list" value="html">HTML<br>
+		<input type="checkbox" name="list" value="css">CSS<br>
+		<input type="checkbox" name="list" value="script">SCRIPT<br>
+		<input type="button" value="[전체선택]" onclick="this.value = checkForm()">
+		<br>
+		<input type="button" value="[전체선택]" onclick="this.value = checkForm2(document.myform.list)">
+		<!-- this.form   this >> document -->
+	</form>
+</body>
+</html>

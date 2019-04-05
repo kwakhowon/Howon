@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+	/*
+	When a web page is loaded, the browser creates a Document Object Model of the page.
+	The HTML DOM model is constructed as a tree of Objects:
+		
+	JavaScript can change all the HTML elements in the page
+	JavaScript can change all the HTML attributes in the page
+	JavaScript can change all the CSS styles in the page
+	JavaScript can remove existing HTML elements and attributes
+	JavaScript can add new HTML elements and attributes
+	JavaScript can react to all existing HTML events in the page
+	JavaScript can create new HTML events in the page	
+	*/
+	</script>
+</head>
+<body>
+	<div id="demo"></div>
+	<div id ="demo">두번째 요소(계층트리에서 첫번째 element id = demo 찾으면 .. )</div>
+</body>
+<script type="text/javascript">
+	const element_div = document.getElementById("demo");
+	console.log(element_div);
+	element_div.innerHTML = "<b>Hello World</b>";
+</script>
+</html>

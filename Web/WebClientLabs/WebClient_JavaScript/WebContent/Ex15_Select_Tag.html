@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+	function evtproductor(frm){
+		console.log(frm);
+		console.log(frm.productor.value); //option 태그 value 속성 값
+		console.log("index : " +frm.productor.selectedIndex); //POINT
+		
+		//document.forms[0].elements[0] 배열로 관리
+		
+		//select 태그 안에 option 내부적으로 배열로 관리
+		//console.log(frm.productor.options[0].value);
+		//console.log(frm.productor.options[0].text);
+		console.log(frm.productor.options[frm.productor.selectedIndex].value);
+		console.log(frm.productor.options[frm.productor.selectedIndex].text);
+		
+		var index = frm.productor.selectedIndex;
+		var text = frm.productor.options[index].text;
+		var val = frm.productor.options[index].value;
+		
+		if(index == 0){
+			frm.valProductor.value="";
+			frm.txtProductor.value="";
+		}else{
+			frm.valProductor.value=val;
+			frm.txtProductor.value=text;
+		}
+		
+	}
+	
+	function evtBrand(){ //parameter 없어요
+		//위 함수와 동일한 동작이 되도록 코드 작성하세요
+		var frm = document.frmdata;
+		var index = frm.brand.selectedIndex;
+		var text = frm.brand.options[index].text;
+		var val = frm.brand.options[index].value;
+		
+		if(index == 0){
+			frm.valBrand.value="";
+			frm.txtBrand.value="";
+		}else{
+			frm.valBrand.value=val;
+			frm.txtBrand.value=text;
+		}
+	}
+	</script>
+</head>
+<body>
+	모델별 최저가 검색
+	<br>
+	<form name="frmdata">
+		<select style="width: 200px" name="productor" onchange="evtproductor(this.form)">
+			<option value="A000" selected>제조사</option>
+			<option value="A001">삼성전자</option>
+			<option value="A002">LG전자</option>
+			<option value="A003">Apple</option>
+			<option value="A004">Dell</option>
+		</select> <input type="text" name="valProductor" size="10"> 
+		<input type="text" name="txtProductor" size="10"> <br> 
+			<select style="width: 200px" name="brand" onchange="evtBrand()">
+			<option value="B000" SELECTED>브랜드</option>
+			<option value="B001">센스</option>
+			<option value="B002">X-Note</option>
+			<option value="B003">MAC</option>
+			<option value="B004">VAIO</option>
+		</select> 
+		<input type="text" name="valBrand" size="10"> 
+		<input type="text" name="txtBrand" size="10">
+	</form>
+</body>
+</html>

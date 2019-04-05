@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+	table{ width: 100%
+			border : 1px solid black;}
+	td{ background-color: gold;}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			/*
+				동적 테이블 생성 버튼을 클릭하면 
+				2행 2열
+				<table id = "tab">
+					<tr><td></td><td></td></tr>
+					<tr><td></td><td></td></tr>
+					만들어진 table body > div 의 자식요소로 추가
+				</table>
+			*/
+			document.getElementById("b1").onclick = function() {
+				//동적 테이블 생성 로직 제어
+				var hrele = document.createElement("hr");
+				var row = Number(document.getElementById("txtrow").value);
+				var colum = Number(document.getElementById("txtcolum").value);
+				var tabele = document.createElement("table");
+				tabele.setAttribute("id", "tab");
+				
+				for(var i=0; i<row; i++){
+					var tr = document.createElement("tr");
+					tabele.appendChild(tr);
+					for(var j=0; j<colum; j++){
+						var td = document.createElement("td");
+						td.innerText="칸";
+						tr.appendChild(td);
+					}
+					
+					
+				}
+				document.body.appendChild(div).appendChild(tabele);
+			}
+			
+			document.getElementById("b2").onclick = function() {
+				//동적 테이블 제거 로직 제어
+				//1. Table id = "tab"
+				//같은 id 가진 Table 여러개 있다.
+				/*
+					var tab = document.getElementById("tab");
+					//여러개의 테이블이 있다면 제일 먼저 만나는 녀석 하나만 가지고 .....
+					var tab = document.getElementById("tab");
+					console.log(tab);
+					document.getElementById("div").removeChild(tab);
+					
+					삭제 (먼저 생성된 것부터) >> 형부터 삭제 >> 같은 id
+					document.getElementById(id)				Find an element by element id
+					document.getElementsByTagName(name)		Find elements by tag name
+					document.getElementsByClassName(name)	Find elements by class name
+				*/
+				
+				//2. Table id 가 없다면
+				var tables = document.getElementsByTagName("table");
+				//body 안에 모든 table 요소를 다 가지고 와요
+				console.log(tables);
+				console.log(tables.length);
+				console.log(tables[tables.length-1]);
+				if(tables.length>0){
+					document.getElementById("div").removeChild(tables[tables.length-1]);
+					//마지막에 생성된 table 부터 삭제
+				}else{
+					alert("모두 삭제되었습니다.");
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="div">
+		행의 수 : <input type="text" id="txtrow" name="txtrow" value="2">
+		열의 수 : <input type="text" id="txtcolum" name="txtcolum" value="2">
+		<input type="button" id="b1"  value="동적테이블생성">
+		<input type="button" id="b2"  value="동적테이블제거">		
+	</div>
+</body>
+</html>

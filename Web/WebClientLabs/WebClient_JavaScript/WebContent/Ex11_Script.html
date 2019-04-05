@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>내장객체 + 함수</title>
+	<script type="text/javascript">
+	/*  
+		javascript 내장객체
+		Date() , Array()
+		객체 사용시 new 연산자를 통해서 객체를 만들고 사용
+		var d = new Date();
+	
+	*/
+	var today = new Date();
+	document.write(today.getFullYear() + "년<br>");
+	document.write(today.getMonth()+1 + "월<br>");
+	document.write(today.getDate() + "일<br>");
+	
+	document.write(today.getHours() + "시<br>");
+	document.write(today.getMinutes() + "분<br>");
+	document.write(today.getSeconds() + "초<br>");
+	
+	//Math
+	document.write(Math.random()+ "<br>"); //0 ~ < 1
+	document.write(parseInt(Math.random()*45)+1+"<br>");
+	
+	document.write(Math.round(3.5678)+"<br>");
+	document.write(Math.max(3,8,45,65,11)+"<br>");
+	
+	//문자열 관련 함수(POINT)
+	var str = "ABCDEF";
+	with(document){ //화면에 출력 : document.write
+		write(str+"<br>");
+		write(str.length+"<br>");
+		write(str.charAt(2)+"<br>");
+		write(str.indexOf("D")+"<br>");
+		write(str.concat("홍길동")+"<br>");
+		
+		var str2 = str.replace("E", "ZZZZZZZZZZZ");
+		write(str2+"<br>");
+		write(str.substring(2,4)+"<br>");
+		write(str.substring(1,1)+"<br>");
+		write(str.substring(1,2)+"<br><br>");
+		
+		var strarr = "A B C D";
+		var arr = strarr.split(" ");
+		// arr 는 Array 배열 타입
+		console.log(typeof(arr)); //object Array 객체 >>
+		//POINT
+		//java : for(String s : arr)
+		//c# : for(String s in arr)
+		//javascript : for(var s in arr){}
+		for(var index in arr){ //KEY POINT (배열 index 값)
+			//write(index+ "<br>");
+			write(arr[index]+"<br>");
+		}
+	}
+	</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+ 		window.onload = function(){
+	 		var myphotos = Array("images/1.jpg",
+				 			  "images/3.jpg",
+			 				  "images/4.jpg",
+			 				  "images/6.jpg");
+	 		
+	 		var img = document.getElementById("imgs");
+	 		var number =0;
+	 		var prvbtn = document.getElementById("prv").onclick = function(){
+	 			number--;
+	 			if(number === -1){
+	 				number =3;
+	 			}
+	 			var prvImage = myphotos[number];
+	 			img.setAttribute("src", prvImage);
+	 		};
+	 		var nextbtn = document.getElementById("next").onclick = function(){
+	 			number++;
+	 			if(number ===4){
+	 				number =0;
+	 			}
+	 			var nextImage = myphotos[number];
+	 			img.setAttribute("src", nextImage);
+	 		};
+	 		
+ }
+ </script>
+</head>
+<body>
+	<h3>DOM 슬라이드</h3>
+	<img alt="이미지" src="images/1.jpg" id="imgs" width="200" height="200">
+	<hr>
+	<a href="#" id="prv">이전</a> || <a href="#" id="next">다음</a>
+</body>
+</html>

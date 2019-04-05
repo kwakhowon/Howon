@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+	//onload 이벤트 발생 시점 : body 태그 안에 있는 모든 요소가 브라우저에 로딩되고 난 후
+	//<body onload=call()>
+	//window.onload = call(); 코드 방식도 가능
+	
+	//https://www.w3schools.com/js/js_htmldom_document.asp
+	window.onload = function(){ //함수가 이름이 없어요(익명함수 : 일회성) : 재활용 안하겠다.
+		
+		//page 요소가 loading 된 후에 함수가 자동 실행 되게 하겠다.
+		//body 안쪽에 모든 요소를 제어 할 수 있다.
+		var out = "";
+	out+="<ul>";
+		out+="<li>javascript</li>";
+		out+="<li>jquery</li>";
+		out+="<li>oracle</li>";
+	out+="</ul>";
+	
+	document.body.innerHTML = out;
+	
+	var header = document.createElement("h1");
+	//<h1></h1>
+	var textnode = document.createTextNode("hello");
+	
+	header.appendChild(textnode);
+	//<h1>hello</h1>
+	
+	document.body.appendChild(header);
+	
+	//img 태그 생성하고 이미지 src 속성을 만들고 body append
+	
+	var img = document.createElement("img"); //<img />
+	img.setAttribute("src", "images/뚱이.PNG"); //<img src = "images/뚱이.PNG">
+	img.setAttribute("width", '100');
+	img.setAttribute("height", '100'); // <img src = "images/뚱이.png" width = "100" height = "100";>
+	document.body.appendChild(img);
+	
+	}
+	</script>
+</head>
+<body>
+	HELLO WORLD
+</body>
+</html>

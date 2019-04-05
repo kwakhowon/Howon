@@ -1,7 +1,18 @@
 @charset "UTF-8";
 body{
-  background-color: red;
+  background-color: green;
 }
 h1{
-  color: green;
+  color : #34495e;
+  transition: color .5s ease-in-out;
 }
+
+.clicked{
+  color : #7f8c8d;
+ 
+}
+
+.btn{
+  cursor: pointer;
+}
+
