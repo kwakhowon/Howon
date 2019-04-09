@@ -1,0 +1,54 @@
+@charset "UTF-8";
+.modal {
+        text-align: center;
+}
+
+header{
+padding-top : 30px;
+padding-bottom : 30px;
+background-color: #00b894;
+}
+h1{
+text-align: center;
+color: white;
+}
+.display-3{
+padding-top: 30px;
+padding-left: 20px;
+background-color: red;
+padding-bottom: 30px;
+}
+.display-4{
+padding-top : 30px;
+text-align: center;
+
+}
+div{
+text-align: center}
+div img{
+	text-align: center;
+}
+div.row{
+padding-top: 30px;
+padding-left: 20px;
+background-color: white;
+padding-bottom: 30px;
+}
+div ul li {
+	margin-left : 30px;
+	background-color: Red;
+}
+
+div ul li.list-group-item{
+	list-style : inside;
+}
+div ul{
+	background-color: white;
+}
+
+footer{
+	padding-bottom : 30px;
+	background-color: #00b894;
+	text-align: center;
+	padding-top: 30px;
+}

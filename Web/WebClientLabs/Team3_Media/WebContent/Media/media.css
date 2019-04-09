@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  
+}
+header {
+  background-color: #f4b942;
+  color: #0b1761;
+  padding: 25px;
+}
+header h1 {
+  text-align: center;
+}
+header p {
+  text-align: center;
+}
+#container {
+  padding-left: 35%;
+  padding-right: 25%;
+}
+aside {
+  float: left;
+  width: 64px;
+  margin: 0;
+}
+aside ul {
+  list-style-type: none;
+  padding-left: 10px;
+}
+article {
+  float: left;
+  width: 40%;
+  margin: 0;
+}
+#animalBox {
+  border: 2px solid black;
+  height: 100px;
+  width: 100px;
+  margin-left: 45%;
+}
+#animalNameBox {
+  width: 80px;
+  margin-left: 47.5%;
+  text-align: center;
+}
+#replay {
+  background-color: #f4b942;
+  border: 2px solid black;
+  margin-left: 50%;
+}
+audio {
+  display: none;
+}
+footer {
+  background-color: #f4b942;
+  clear: both;
+}
+footer p {
+  color: #0b1761;
+  margin: 0;
+  padding: 8px;
+  text-align: center;
+}

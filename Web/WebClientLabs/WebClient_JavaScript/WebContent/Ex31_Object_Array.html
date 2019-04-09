@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        // 1. javascript 배열 : var arr = [10, 20, 30];
+        // 2. JSON : {} : Vvar obj = {}
+
+        //객체와 배열 혼합
+        var students = [];
+        console.log(students);
+
+        //배열이 객체를 가질 수 있다
+        students.push({이름:"홍길동", 국어:80, 영어:60});
+        students.push({이름:"아무개", 국어:100, 영어:50});
+        students.push({이름:"유관순", 국어:100, 영어:100});
+
+        //객체에 접근
+        //var obj = students[0] << {이름:"홍길동", 국어:80, 영어:60}
+
+        //기존 객체에 함수 추가
+        for(var index in students){
+            students[index].getSum = function(){
+                return this.국어 + this.영어;
+            }
+            students[index].getAvg = function(){ return this.getSum()/2;}
+        }
+        console.log(students);
+        //students 배열에 담겨있는 학생의 이름 , 총점 , 평균을 출력해보세요
+        var print = "이름 : 평균 : 총점 : <br>";
+        for(var index in students){
+            print += students[index].이름;
+            print += students[index].getSum();
+            print += students[index].getAvg()+"<br>";
+        }
+        document.write(print);
+        
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

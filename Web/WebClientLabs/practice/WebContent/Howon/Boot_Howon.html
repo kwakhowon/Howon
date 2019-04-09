@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function view(){ 
+	 $('#Myimg').click(function(){ 
+ 		 $('#Mymodal').modal('show')
+	});
+});
+
+$(document).ready(function view(){ 
+	 $('#Myimg2').click(function(){ 
+		 $('#Mymodal2').modal('show')
+	});
+});
+$(document).ready(function view(){ 
+	 $('#Myimg3').click(function(){ 
+		 $('#Mymodal3').modal('show')
+	});
+});
+$(document).ready(function view(){ 
+	 $('#Myimg4').click(function(){ 
+		 $('#Mymodal4').modal('show')
+	});
+});
+</script>
+<link rel="stylesheet" type="text/css" href="Boot_Howon.css">
+</head>
+<body>
+<header>
+<h1 class="display-2">3조 페이지</h1>
+</header>
+<div class="row">
+	<div class="col-2">
+	<ul class="list-group">
+    <li class="list-group-item list-group-item-success"><a href="http://www.naver.com">Home</a></li>
+    <li class="list-group-item list-group-item-secondary"><a href="http://192.168.0.80:8080/WebClient/test.html">강기훈</a></li>
+    <li class="list-group-item list-group-item-info"><a href="http://192.168.0.64:8090/WebClient_JavaScript/Practice.html">정성윤</a></li>
+    <li class="list-group-item list-group-item-warning"><a href="http://192.168.0.12:8090/WebClient/team3_homepage.html">윤종석</a></li>
+    <li class="list-group-item list-group-item-danger"><a href="http://localhost:8090/practice/Boot.html">곽호원</a></li>
+  </ul>
+  </div>
+	<div class="col-4"><img src = "images/1.jpg" width="100" height="100" id="Myimg"><br><br>강기훈</div>
+	<div class="col-4"><img src = "images/2.jpg" width="100" height="100" id="Myimg2"><br><br>정성윤</div>
+	<div class="col-2"></div>
+</div>
+<div class="row">
+	<div class="col-2">
+	<ul class="list-group">
+	<li class="list-group-item list-group-item-dark">우리의 페이지</li>
+    <li class="list-group-item list-group-item-primary"><a href="http://192.168.0.12:8090/WebClient/Musinsa.html">Musinsa</a></li>
+    <li class="list-group-item list-group-item-success"><a href="http://192.168.0.12:8090/WebClient/Github.html">Github</a></li>
+    <li class="list-group-item list-group-item-secondary"><a href="http://192.168.0.12:8090/Media/media.html">Media</a></li>
+    </ul>
+	</div>
+	<div class="col-4"><img src = "images/4.png" width="100" height="100" id="Myimg3" ><br><br>윤종석</div>
+	<div class="col-4"><img src = "images/3.jpg" width="100" height="100" id="Myimg4" ><br><br>곽호원</div>
+	<div class="col-2"></div>
+</div>
+<footer>
+	<h3>CopyRight Team3</h3>
+	
+	 <div class ="modal fade" id ="Mymodal">
+	  <div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+		 <div class="modal-header">
+		  <h4 class="modal-title">정보</h4>
+		  <button type="button" class="close" data-dismiss="modal">&times</button>
+		 </div>
+		 <div class="modal-body">
+		 <form action="" id="MyForm" method="post">
+		 <label><img alt="" src="images/1.jpg" width="50" height="50"></label>
+		 <label>이름 : 강기훈</label><br>
+		 <label>나이 : 28</label><br>
+		 <label>별명 : 한조대기중</label><br>
+		 <label>거주지 : 서울</label><br>
+		 <label>Tel : 010-1234-5678</label><br>
+		 <label>Email : kigoon@bitcamp.com</label>
+		 </form>
+		 </div>
+		</div>	
+	</div>
+	</div>
+	
+	<div class ="modal fade" id ="Mymodal2">
+	  <div class="modal-dialog modal-dialog-centered" >
+		<div class="modal-content">
+		 <div class="modal-header">
+		  <h4 class="modal-title">정보</h4>
+		  <button type="button" class="close" data-dismiss="modal">&times</button>
+		 </div>
+		 <div class="modal-body">
+		 <form action="" id="MyForm" method="post">
+		  <label><img alt="" src="images/2.jpg" width="50" height="50"></label>
+		 <label>이름 : 정성윤</label><br>
+		 <label>나이 : 25</label><br>
+		 <label>별명 : 명탐정</label><br>
+		 <label>거주지 : 서울</label><br>
+		 <label>Tel : 010-1111-2222</label><br>
+		 <label>Email : seongyoon@bitcamp.com</label>
+		 
+		 </form>
+		 </div>
+		</div>	
+	</div>
+	</div>
+	
+	<div class ="modal fade" id ="Mymodal3">
+	  <div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+		 <div class="modal-header">
+		  <h4 class="modal-title">정보</h4>
+		  <button type="button" class="close" data-dismiss="modal">&times</button>
+		 </div>
+		 <div class="modal-body">
+		 <form action="" id="MyForm" method="post">
+		  <label><img alt="" src="images/4.png" width="50" height="50"></label>
+		<label>이름 : 윤종석</label><br>
+		 <label>나이 : 28</label><br>
+		 <label>별명 : 그저 빛</label><br>
+		 <label>거주지 : 서울</label><br>
+		 <label>Tel : 010-2345-6789</label><br>
+		 <label> Email : jongseok@bitcamp.com</label>
+		 
+		 </form>
+		 </div>
+		</div>	
+	</div>
+	</div>
+	
+	<div class ="modal fade" id ="Mymodal4">
+	  <div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+		 <div class="modal-header">
+		  <h4 class="modal-title">정보</h4>
+		  <button type="button" class="close" data-dismiss="modal">&times</button>
+		 </div>
+		 <div class="modal-body">
+		 <form action="" id="MyForm" method="post">
+		  <label><img alt="" src="images/3.jpg" width="50" height="50"></label>
+		 <label>이름 : 곽호원</label><br>
+		 <label>나이 : 26</label><br>
+		 <label>별명 : 동네북</label><br>
+		 <label>거주지 : 용인</label><br>
+		 <label>Tel : 010-2222-3333</label><br>
+		 <label>Email : howon@bitcamp.com</label>
+		 
+		 </form>
+		 </div>
+		</div>	
+	</div>
+	</div>
+</footer>
+</body>
+</html>
