@@ -1,12 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
   <display-name>WebJSP</display-name>
+  <!-- http://localhost:8090/WebJSP/ -->
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <context-param>
+  	<description>기본적인 설명을 하자면 ......</description>
+  	<param-name>email</param-name>
+  	<param-value>webmaster@bit.or.kr</param-value>
+  </context-param>
+  <context-param>
+  	<description>파일 저장 경로</description>
+  	<param-name>Filepath</param-name>
+  	<param-value>C:\\web\\download</param-value>
+  </context-param>
+  <!--  
+  context-param 으로 만든 변수는 각 페이지에 어떻게 가져다 쓸까
+  >>application 객체 사용해서 xml 가지고 있는 parameter 값을 read
+  -->
+  
+  <!--  
+  Web App 전체 페이지에서 발생하는 Error 처리 통합처리
+  1. 상태코드 (404 , 500) 304(페이지 수정) >>에러가 아니다 정상 : 200~299
+  2. 예외객체에 따라서 페이지 설정 ....
+  
+    최종 베포시 (개발 도중에 Error 확인)
+  -->
+  <!-- <error-page>
+  	<error-code>404</error-code>
+  	<location>/error/error404.jsp</location>
+  </error-page>
+  <error-page>
+  	<error-code>500</error-code>
+  	<location>/error/error500.jsp</location>
+  </error-page> -->
 </web-app>
