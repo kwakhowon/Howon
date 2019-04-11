@@ -47,5 +47,6 @@ UID , PWD , CHK 여부
 %>
 
 **로그인 성공**
+<br><%= uid %> 님 환영합니다.
 </body>
 </html>

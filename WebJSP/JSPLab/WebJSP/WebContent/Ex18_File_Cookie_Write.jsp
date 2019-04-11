@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>쿠기값 쓰기</title>
+<title>쿠키 값 쓰기</title>
 </head>
 <body>
 <!--  
