@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="script/jquery-3.4.0.min.js"></script>
+    <script type="text/javascript">
+        //Page에 모든 요소 DOM 형태로 loading 되고 난 후에
+        //window.onload = function(){}
+        //$(document).ready(function(){
+        //    $('h3').css("color","red");
+        //});
+
+        //단축 표현식
+        //즉시 실행 함수 (== document.ready와 동일)
+        //body 요소가 로딩되고 난 후에 함수 실행
+        $(function () {
+            $('h3').css("color", "blue");
+        });
+    </script>
+</head>
+
+<body>
+    <h3>script include</h3>
+</body>
+
+</html>

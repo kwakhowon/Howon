@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        .redcolor{color: red}
+        .bluecolor{color: blue}
+        .greencolor{color: green}
+        .whitecolor{color: white}
+        
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    /*
+        https://www.w3schools.com/jquery/jquery_css_classes.asp
+
+        기본에 사용자 정의로 만들어진 css 활용하는 함수
+        addClass() - Adds one or more classes to the selected elements
+        removeClass() - Removes one or more classes from the selected elements
+        toggleClass() - Toggles between adding/removing classes from the selected elements
+
+        css() - Sets or returns the style attribute (속성을 만들어서 추가)
+    */
+        $(function(){
+            $('td:contains("홍길동")').addClass('redcolor');
+            //기존에 존재하는 css의 이름을 추가하는 방식
+
+            $('td:contains("홍길동")').siblings().addClass('bluecolor').parent().find('td:eq(0)').addClass('greencolor'); //필터 함수
+
+            //이벤트
+            //$('#btnclick').on(click, function(){});
+            //또는 on ({click:function() ....})
+            $('#btnclick').on('click', function(){
+                alert("click");
+            });
+            $('#btnclick').on('mouseover', function(){
+                document.getElementById('btnclick').style.backgroundColor='red';
+            });
+            $('#btnclick').on('mouseout', function(){
+                document.getElementById('btnclick').style.backgroundColor='white';
+            });
+            
+            //btnclick2 라는 id를 가진 div를 클릭하면 
+            //btnclick 이라는 id를 가진 div 태그에 click이벤트를 off
+
+            $('#btnclick2').click(function(){
+                $('#btnclick').off('click');
+            });
+
+            $('#stylediv').on(
+                {
+                    mouseover : function(){$('#stylediv').addClass('greencolor')},
+                    mouseout : function(){
+                        $('#stylediv').removeClass('greencolor');
+                        $('#stylediv').addClass('bluecolor');
+                    }
+                }
+            );
+        });
+    </script>
+</head>
+<body>
+    <table>
+            <tr>
+                <td>이름</td>
+                <td>나이</td>
+                <td>취미</td>
+            </tr>
+            <tr>
+                <td>홍길동</td>
+                <td>50</td>
+                <td>훔치기</td>
+            </tr>
+            <tr>
+                <td>이순신</td>
+                <td>10</td>
+                <td>싸움</td>
+            </tr>
+            <tr>
+                <td>여러분</td>
+                <td>20</td>
+                <td>먹기</td>
+            </tr>
+        </table>
+        <hr>
+        <h3>이벤트</h3>
+        <a href="http://www.naver.com">네이버 바로가기</a>
+        <hr>
+        <div id="btnclick">click</div>
+        <div id="btnclick2">click2</div>
+        <div id="stylediv">스타일적용</div>
+</body>
+</html>

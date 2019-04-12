@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        /*
+        https://www.w3schools.com/jquery/jquery_events.asp    
+        Mouse Events	Keyboard Events	    Form Events 	Document/Window Events
+        click	         keypress	         submit	                load
+        dblclick	     keydown	         change	                resize
+        mouseenter	     keyup	             focus	                scroll
+        mouseleave	     blur	             unload
+        */
+        $(document).ready(function () {
+            $('#btncopy').click(function(){
+                $('#txtcopyuserid').val($('#txtuserid').val());
+            });
+            
+            //onChange > change
+            //주의 사항
+            //element > value값 : input
+            //element > p , div , option <div>방가방가</div>
+            //val() , text()
+            $('#select_hobby').change(function(){
+                //var text = $(':selected').text(); //[body 안에 select 1개 존재]
+                var text = $('#select_hobby option:selected').text();
+                $('#txtselect').val(text);
+            });
+
+            //txtpwd2 > keyup이 되었을때 txtpwd 입력한 값하고 비교해서
+            //암호가 같으면 id="message" 인 div 태그 안에 '암호가 일치합니다' 문자열 출력
+            //일치하지 않으면 '암호가 일치하지 않습니다' 출력
+            $('#txtpwd2').keyup(function(){
+                if($('#txtpwd').val() != $('#txtpwd2').val()){
+                    $('#message').text('암호가 일치하지 않습니다.');
+                    
+                }else{
+                    $('#message').text('암호가 일치합니다.');
+                    $('#message').css('color','blue');
+                }
+            });
+
+            $('input').focusin(function(){
+                $(this).css('background-color', 'gray');
+            });
+
+            $('input').blur(function(){
+                $(this).css('background-color', 'white');
+            });
+
+            //하나의 이벤트가 함수를 여러개 가질 수 있다.
+            $('p').hover(function(){ // in
+                $(this).css('background-color', 'yellow');
+            }, function(){ //out
+                $(this).css('background-color', 'pink');
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <p>Jquery event</p>
+    ID : <input type="text" id="txtuserid">
+    <hr>
+    <input type="button" value="copy" id="btncopy">
+    <hr>
+    COPY ID : <input type="text" id="txtcopyuserid">
+    <hr>
+    <select id="select_hobby">
+        <option value="JAVA">java</option>
+        <option>script</option>
+        <option>jdbc</option>
+    </select>
+    <br>
+    <input type="text" id="txtselect">
+    <hr>
+    <table style="border:1px solid red;">
+        <tr>
+            <td>암호</td>
+            <td>
+                <input type="text" id="txtpwd" size="20" maxlength="5">
+            </td>
+        </tr>
+        <tr>
+            <td>암호확인</td>
+            <td>
+                <input type="text" id="txtpwd2" size="20" maxlength="5">
+            </td>
+        </tr>
+    </table>
+    <div id="message" style="color:red;"></div>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    /*
+        event attach (다중)
+        bind() <-> unbind() 2.x
+        on() <-> off() 3.x
+
+        KEY POINT
+        on() 안에서 여러개의 이벤트를 적용시 JSON 객체 활용
+    */
+    $(document).ready(function(){
+        /*
+        $('p').click(function(){
+
+        });
+        $('p').mousedown(function(){
+
+        });
+        */
+       $('p').on(
+           { //JSON 객체를 parameter 전달 ....
+               click : function(){$(this).css('background-color', 'red')},
+               mouseleave : function(){$(this).css('background-color', 'green')},
+               mouseenter : function(){$(this).css('background-color', 'blue')}
+
+           }
+       );
+       $('button').click(function(){
+            $('p').off('click');
+       });
+    });
+    </script>
+</head>
+<body>
+    <p>on 함수 사용해서 다중 이벤트 구현하기</p>
+    <hr>
+    <button>이벤트 제거</button>
+</body>
+</html>
