@@ -1,2 +1,10 @@
 /.metadata/
 .class
+*.project
+*.gitignore
+*.jsdtscope
+*.prefs
+*.component
+*.xml
+*.container
+*.name

@@ -35,7 +35,7 @@ td {
 				<jsp:include page="/common/Left.jsp"></jsp:include>
 			</td>
 			<td style="width: 700px">
-				<form action="Ex02_JDBC_loginok.jsp" method="post" name="loginForm"
+				<form action="Ex02_JDBC_Loginok.jsp" method="post" name="loginForm"
 					id="joinForm">
 
 					<h3 style="text-align: center;">Login Page</h3>

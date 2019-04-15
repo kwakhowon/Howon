@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	/*
+		div , p , span >> value 속성 없다
+
+		text() - Sets or returns the text content of selected elements
+		html() - Sets or returns the content of selected elements (including HTML markup)
+		val() - Sets or returns the value of form fields
+
+		https://www.w3schools.com/jquery/jquery_dom_set.asp
+	*/
+	$(function(){
+		$('#btn1').click(function(){
+			alert("text : " +$('#test').text());
+		});
+		$('#btn2').click(function(){
+			alert("html : " +$('#test').html()); //html 요소 정보
+		});
+		$('#btn3').click(function(){
+			//$('#test').text("<div>AAAAA</div>"); //div가 텍스트 형태
+			$('#test').html("<div>AAAAA</div>"); //html 태그 인정.....
+		});
+
+		$('#btn4').click(function(){
+			alert($('#test2').val());
+		})
+	});
+	</script>
+</head>
+<body>
+	<p id="test">안녕하세요<b>정말</b>방가방가</p>
+	<button id="btn1">show text</button>
+	<button id="btn2">show html</button>
+	<button id="btn3">html</button>
+	<button id="btn4">input tag</button>
+	<input type="text" id="test2" value="HelloWorld">
+</body>
+</html>

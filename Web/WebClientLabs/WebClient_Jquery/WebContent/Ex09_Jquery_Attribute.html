@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#btn0').click(function () {
+                alert($('#w3').attr('href'));
+            });
+
+            //POINT : jquery 함수가 여러개의 parameter json 객체 받도록 설계
+            $('#btn1').click(function(){
+                $('#w3s').attr(
+                    {
+                        "href" : "http://www.daum.net",
+                        "title" : "jquery study"
+                    }
+                );
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <p>
+        <a href="http:www.naver.com" id="w3">naver.com</a>
+    </p>
+    <button id="btn0">show button</button>
+    <br>
+    <a title="w3popup" href="http:www.naver.com" id="w3s">www.w3schools.com</a>
+    <br>
+    <button id="btn1">show button</button>
+</body>
+
+</html>

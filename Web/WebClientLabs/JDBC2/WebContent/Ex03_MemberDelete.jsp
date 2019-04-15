@@ -1,4 +1,3 @@
-<%@page import="kr.or.kosta.utils.SingletonHelper"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"

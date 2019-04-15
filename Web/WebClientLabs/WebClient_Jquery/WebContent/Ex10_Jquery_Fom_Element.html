@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    // https://api.jquery.com/button-selector/
+    $(function(){
+        $('#txtname').val('hong');
+
+        //1. radio 기본값을 설정(checked)
+        //$('input[type=radio]')
+        
+        //value 값이 F인 녀석을 checked 하고싶다.
+        $('input:radio').val(['F']); //checked 설정 한다.
+
+        console.log($('input:radio').val()); //순서대로 먼저 있는 radio value값
+        console.log($('input:checked').val()); //선택된 value
+        //위 실습 (radio) 여러개 있으면 안된다.(여러개 >> id or name 속성을 부여)
+        console.log($('input:radio[name=gender]:checked').val());
+
+        //select 태그 단일 값
+        //단일값
+        //$('#isF').val(); : 선택된 option 태그의 value값
+        //$('#isF').val('oracle'); : 선택되어지게 하는 것
+
+        //단 multiple 속성이 있으면 : 다중값
+        //페이지가 로딩 되고 나면 java , oracle 이라는 옵션 다중 선택
+        $('#isF').val(['java','oracle']); //다중값 선택하기
+        $('#btnok').click(function(){
+            var msg = "";
+            msg +=$('#txtname').val() + " / ";
+            msg +=$('input:radio[name=gender]:checked').val();
+            console.log("선택값 : " +msg);
+            //단일값
+
+            //다중값
+            var selecttag = "";
+            selecttag = $('#isF').val(); //다중값 return Array
+            console.log(selecttag);
+
+            for(var index in selecttag){
+                console.log("value : " +selecttag[index]);
+            }
+        });
+
+        //$('input:submit')
+        //$('input[type=submit]')
+        if($('#myform').children().is('input:submit')){
+            //너의 자식요소로 submit 태그 있니
+            alert('true');
+        }else{
+            alert('false');
+        }
+    });
+    </script>
+</head>
+<body>
+    <form>
+        TextBox : <input type="text" id="txtname">
+        <br>
+
+        RadioButton : checked 속성
+        <input type="radio" name="gender" value="M">남
+        <input type="radio" name="gender" value="F">여
+
+        <br>
+        select tag(option)
+        <select id="isF" multiple size="3">
+            <option value="java">JAVA</option>
+            <option value="jsp">웹</option>
+            <option value="oracle">오라클</option>
+        </select>
+        
+        <br>
+        <input type="button" value="확인" id="btnok">
+        <br>
+        <div id="myform">
+            submit button : <input type="submit" value="전송">
+        </div>
+    </form>
+</body>
+</html>

@@ -5,3 +5,12 @@
 <a href="Ex02_JDBC_JoinForm.jsp">Register</a>&nbsp;&nbsp;&nbsp;||
 <a href="#">Intro</a>&nbsp;&nbsp;&nbsp;||
 <a href="#">Intro</a>&nbsp;&nbsp;&nbsp;
+<%
+	if(session.getAttribute("userid") != null){
+		out.print("<b>["+session.getAttribute("userid")+"]</b> 로그인 상태");
+		out.print("<a href='Ex02_JDBC_Logout.jsp'>[ 로그아웃 ] </a>");
+	}else{
+		out.print("<b>로그인하지 않으셨네요</b>");
+		out.print("<a rhef='Ex02_JDBC_Login.jsp'>[로그인]</a>");
+	}
+%>
