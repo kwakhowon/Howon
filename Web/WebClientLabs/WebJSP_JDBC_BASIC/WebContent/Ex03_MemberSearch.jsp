@@ -1,3 +1,6 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -32,7 +35,17 @@ td {
 			<td style="width: 200px"><jsp:include page="/common/Left.jsp"></jsp:include>
 			</td>
 			<td style="width: 700px">
-			
+				<!-- 조회된 내용 UI 구성 
+					  조회된 데이터 총 몇건
+					  데이터 집합 .....
+				-->
+				<%
+					String name = request.getParameter("search");
+					Connection conn = null;
+					PreparedStatement pstmt = null;
+					ResultSet rs = null;
+					
+				%>
 			</td>
 		</tr>
 		<tr>

@@ -8,3 +8,8 @@
 *.xml
 *.container
 *.name
+*.class
+*.MF
+*.tern-project
+*.classpath
+*.txt

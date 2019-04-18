@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		/*
+		1. XMLHttpRequest 객체 얻기
+	    2. onreadystatechange 이벤트 핸들러 구현
+        3. 요청 정보 ( open() )
+	    4. 요청 보내기 (send() )
+        5. 응답 처리 (Text(JSON,script,text,html), xml )
+		*/
+		var httpReq = null; 
+		
+		function getInstance(){
+			if(window.XMLHttpRequest){
+				httpReq = new XMLHttpRequest();
+			}else if(window.ActiveXObject){ //IE6
+				httpReq = new ActiveXObject("Msxml12.XMLHTTP");
+			}else{
+				throw new Error("Ajax 를 지원하지 않습니다");
+			}
+			return httpReq;
+		}
+		
+		function handlerStateChange(){
+			if(httpReq.readyState == 4){ //서버에서 응답이 왔다면
+				if(httpReq.status >= 200 && httpReq.status <300){
+					//UI 구성
+					document.getElementById("txtdata").innerHTML = httpReq.responseText;
+				}
+			}
+		}
+		
+		function sendData(){
+			httpReq = getInstance();
+			httpReq.onreadystatechange = handlerStateChange; //주의 handlerStateChange() (x)
+			var str = document.getElementById("emp").value;
+			httpReq.open("POST","Ex05_EmpSearch.jsp?empno="+str); //비동기 요청
+			httpReq.send();
+		}
+	</script>
+</head>
+<body>
+	<h3>사원 정보 조회</h3>
+	<select name="emp" id="emp" onchange="sendData()">
+		<option value="0000">SELECT EMPNO</option>
+		<option value="7788">SCOTT</option>
+		<option value="7902">FORD</option>
+		<option value="7521">WORD</option>
+	</select>
+	<hr>
+	<div id="txtdata">EMP DATA LOAD</div>
+</body>
+</html>
+
+
+
+
+
+

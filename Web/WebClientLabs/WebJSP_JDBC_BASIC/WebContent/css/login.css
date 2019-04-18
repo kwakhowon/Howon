@@ -1,0 +1,39 @@
+﻿@charset "UTF-8";
+
+form{
+	text-align: center;
+	width : 60%;
+	margin-top : 10%;
+}
+
+.form-id{
+	margin-top: 80px;
+}
+.form-pwd{
+	margin-top: 25px;
+}
+.btn{
+	margin: 20px;
+	padding : 12px 25px 12px 25px;
+	background-color : #3498db;
+	color : white;
+	border: none;
+	font-size: 15px;
+	font-family: "돋움",Dotum,"돋움체",DotumChe;
+
+
+}
+main{
+	background-color: white;
+	display: flex;
+}
+.img > img{
+	width: 50%;
+}	
+
+.img{
+	width:40%;
+	display : flex;
+	justify-content : center;
+	align-items : center;
+}

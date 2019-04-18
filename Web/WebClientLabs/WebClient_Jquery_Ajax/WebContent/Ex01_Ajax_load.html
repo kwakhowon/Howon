@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#btn').click(function(){
+			$('#display').load("Ex01_Ajax_load.jsp",
+				{"msg" : $('#msg2').val()}, // ?msg =aaa
+				function(responseText, statusText, xhr){
+					if(statusText == "success"){
+						alert("load success : 200~299 : " +responseText);
+					}else{
+						alert("load fail : " +xhr.status + " : " +xhr.statusText);
+					}
+				}
+			);
+		});
+	});
+</script>
+</head>
+<body>
+	<h3>동기처리</h3>
+	<div id="frmsend">
+		<form action="Ex01_Ajax_load.jsp" method="get">
+			<input type="text" name="msg" id="msg">
+			<input type="submit" value="동기전송">
+		</form>
+	</div>
+	
+	
+	<h3>비동기처리</h3>
+			<input type="text" name="msg2" id="msg2">
+			<input type="button" value="비동기전송" id="btn">
+			
+	<div id="display"></div>
+</body>
+</html>

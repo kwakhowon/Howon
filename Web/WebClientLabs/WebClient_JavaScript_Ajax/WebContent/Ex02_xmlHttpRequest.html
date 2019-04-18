@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        /*  
+          1. XMLHttpRequest 객체 얻기
+          2. onreadystatechange 이벤트 핸들러 구현
+          3. 요청 정보 ( open() )
+          4. 요청 보내기 (send() )
+          5. 응답 처리 (Text(JSON,script,text,html), xml )
+        */
+
+        var httpReq = null;
+
+        function getInstance() {
+            if (window.XMLHttpRequest) {
+                httpReq = new XMLHttpRequest();
+            } else if (window.ActiveXObject) { //IE6
+                httpReq = new ActiveXObject("Msxml12.XMLHTTP");
+            } else {
+                throw new Error("Ajax 를 지원하지 않습니다");
+            }
+            return httpReq;
+        }
+
+        function handlerStateChange() {
+            if (httpReq.readyState == 4) { //서버에서 응답이 왔다면
+                if (httpReq.status >= 200 && httpReq.status < 300) {
+                    document.getElementById("container").innerHTML = httpReq.responseText;
+                }
+            }
+        }
+
+        function sendData() {
+            httpReq = getInstance();
+            httpReq.onreadystatechange = handlerStateChange; // 주의 handlerStateChange () 붙이지 않는다
+            httpReq.open("GET","Ex01_Resource.html"); //form 구성
+	        httpReq.send('');
+         }
+    </script>
+</head>
+
+<body>
+    <h3>이미지</h3>
+    <img src="images/사과.jpg" style="width: 150px;height: 150px">
+
+    <h3>비동기(Ajax) 처리하기</h3>
+    <input type="button" value="비동기 처리" onclick="sendData()">
+    <div id="container">First data Load .............</div>
+
+    <h3>동기식 데이터 처리</h3>
+    <a href="Ex01_Resource.html">서버 데이터 요청</a>
+
+</body>
+
+</html>

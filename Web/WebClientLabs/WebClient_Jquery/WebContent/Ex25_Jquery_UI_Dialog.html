@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/sunny/jquery-ui.css">
+	<style type="text/css">
+    	body {
+				font-family: Arial, Helvetica, sans-serif;
+			 }
+	
+     </style>
+   
+     <script type="text/javascript">
+     	$(function(){
+     		
+     		$('#datepicker').datepicker(
+     			{
+     				dateFormat: "yy년mm월dd일"
+     			}		
+     		);
+     		
+     		$('#dialog').dialog(
+     			{
+     				autoOpen: false,
+     				show:{effect:"blind",duration:2000},
+     				hide:{effect:"explode",duration:1000},
+     				buttons:{
+     					      "확인":function(){ $(this).dialog("close")},
+     					      "취소":function(){ $(this).dialog("close")}
+     				        },
+     				resizable: false,
+     				modal: true //팝업 창을 닫기 전까지는 부모창의 작업 불가
+     			}		
+     		
+     		);
+     		
+     		$('#opener').click(function(){
+     			//$('#dialog').dialog('open');
+     			$('#dialog').dialog(
+     				{autoOpen: true}		
+     			);
+     		});
+     	});
+   
+     </script>
+</head>
+<body>
+	
+	Date:<input type="text" id="datepicker">
+	<hr>
+	<button id="opener">open dialog</button>
+	
+	<div id="dialog" title="bit dialog">
+  		<p>
+  			오늘은 점심은 무었을 먹을까
+  		</p>
+	</div>
+	
+	
+	
+</body>
+</html>
+
+
+
+
+
+
+
+

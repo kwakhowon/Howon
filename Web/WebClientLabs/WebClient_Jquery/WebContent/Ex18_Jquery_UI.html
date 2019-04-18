@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Jquery 의 js 파일 필수 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Jquery UI 요소 사용 : 별도의 JS , CSS -->
+    <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/sunny/jquery-ui.css">
+
+    <!-- 사용자 정의 CSS -->
+    <style>
+    body {
+    	font-family: Arial, Helvetica, sans-serif;
+    }
+
+    table {
+	    font-size: 1em;
+    }
+
+    .ui-draggable, .ui-droppable {
+	    background-position: top;
+    }
+    #draggable{
+        
+        width: 150px;
+        height: 150px;
+        padding: 0,5em;
+    }
+    </style>
+    <script type="text/javascript">
+        $(function(){
+            $('#draggable').draggable();
+        }); 
+    </script>
+    <!-- 별도의 script 블럭 -->
+</head>
+<body>
+    <div id="draggable" class="ui-draggable">
+        나를 움직여봐^^
+    </div>
+</body>
+</html>

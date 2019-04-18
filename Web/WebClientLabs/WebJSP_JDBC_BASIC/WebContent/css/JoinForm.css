@@ -1,0 +1,41 @@
+.register-form {
+  margin: 1px 20% 20% 20%;
+  height: 100%;
+}
+
+form {
+  display: flex;
+  padding: 1em;
+  flex-direction: column;
+  background-color: white;
+  border: 1px solid #80bdff;
+}
+
+.radio-gender {
+  display: flex;
+}
+
+label {
+  padding-top: 10px;
+}
+
+.gender-label {
+  display: block;
+  padding: 0 10px 3px;
+}
+
+.radio-button {
+  display: block;
+  padding-top: 10px;
+}
+
+.joinBtn {
+  background-color: #3b7bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  padding: 9px;
+  width: 15%;
+}

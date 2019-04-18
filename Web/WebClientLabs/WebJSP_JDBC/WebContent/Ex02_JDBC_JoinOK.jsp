@@ -28,6 +28,8 @@
 	int age = Integer.parseInt(request.getParameter("age"));
 	String gender = request.getParameter("gender");
 	String email = request.getParameter("email");
+	
+	
 	//out.print(id + "/" + pass + "/" + name + "/" + age + "/" + gender + "/" + email);
 
 	Class.forName("oracle.jdbc.OracleDriver");

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <style>
+        .float_center {
+            float: center;
+        }
+
+        .layout {
+            margin: 10px;
+            width: 700px;
+        }
+
+        .pocket {
+            border: solid 1px #000;
+            height: 300px;
+            padding: 0px;
+            vertical-align: top;
+        }
+
+        .dnd {
+            width: 100%;
+        }
+
+        .dnd tr {
+            height: 30px;
+        }
+
+        .dnd td {
+            border-bottom: solid 1px #aaa;
+        }
+
+        .btn {
+            height: 20px;
+            border: solid 2px black;
+            padding: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .center {
+            text-align: center;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#add").click(function () {
+                $("#leftTable tr td input").each(function (index, element) {
+                    if ($(element).prop("checked")) {
+                        $(element).prop("checked", false);
+                        $("#rightTable").append(element.parentNode.parentNode);
+                    }
+                });
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    <table class="layout float_center">
+        <colgroup>
+            <col width="45%">
+            <col width="10%">
+            <col width="45%">
+        </colgroup>
+        <tr>
+            <td class="pocket center">
+                <table id="leftTable" class="dnd">
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>TEST1</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>TEST2</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>TEST3</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>TEST4</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>TEST5</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>TEST6</td>
+                    </tr>
+                </table>
+            </td>
+            <td class="center"><span id="add" class="btn">추가</span> <br>
+                <br> <span id="del" class="btn">삭제</span></td>
+            <td class="pocket center">
+                <table id="rightTable" class="dnd">
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
