@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	/* 
+		jQuery.get( url [, data ] [, success ] [, dataType ] ) 
+		$.get
+		
+		$.get("Ex03_Company.xml");
+	
+		>>javascript
+		>>httpReq.open("GET","Ex03_Company.xml");
+		
+        Jquery : each()문  
+        
+        jquery : 핵심(ajax 비동기 처리)
+        1.$(selector).each(function(){ this });
+        2.$(selector).each(function(index){ this });
+        1.$(selector).each(function(index ,element){ element });
+        
+        *selector 없는 each
+        1.$.each(selector, function(){this})
+        2.$.each(selector, function(index){this})
+        3.$.each(selector, function(index, element){element})
+        
+        https://www.w3schools.com/jquery/jquery_ref_ajax.asp
+	*/
+	
+	$(function(){
+		$('#btn').click(function(){
+			$.get("Ex03_Company.xml", function(data){
+				console.log(data);
+				//개발자 마음(데이터 가공 : 화면에 출력 , 팝업 , )
+				
+				$('#display').empty(); // 자식요소 제거
+				console.log($(data).find('Company'));
+				//find 함수 결과 : 배열객체 []
+				
+				$(data).find('Company').each(function(){
+					//편하게 살려면 each(function(index, element))
+					//console.log(this);
+					
+					var entry = $(this);
+					//console.log(entry);
+					var html = "<div>" + entry.attr('CompanyType') +"</div>"
+					//console.log(html);
+					html += "<div>" + entry.find('CompanyName').text() + "</div><br>";
+					html += "<div>" + entry.find('CompanyAddress').text() + "</div><br>";
+					html += "<div>" + entry.find('CompanyNumber').text() + "</div><br>";
+					html += "<div>" + entry.find('Name').text() + "</div><br>";
+					$('#display').append(html);
+					
+					//실제 사용 코드
+					var companyarraylist = $(data).find('Company'); //[,]
+					//$.each(companyarraylist, function(index, obj){
+					//	
+					//});
+					
+				})
+			});
+		});
+	});
+	</script>	
+</head>
+<body>
+	<input type="button" id="btn" value="회사소개">
+	<div id="display" style="background-color: gray">DATA</div>
+</body>
+</html>

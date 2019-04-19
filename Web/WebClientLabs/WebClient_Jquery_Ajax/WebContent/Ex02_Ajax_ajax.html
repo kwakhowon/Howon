@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	/*  
+		Low-Level Interface 에서 제공하는 $.ajax
+		jQuery.ajax( url [, settings ] )
+		(개발자가 원하는 모든 형태의 비동기 코드 직접 구현 : 상세 구현)
+
+		jQuery.ajax( url [, settings ] )
+		
+		[, settings] > json 객체 형태로 옵션을 정의
+		
+		dataType >> (서버가 응답하는 데이터 종류(Type))
+		1. Text (json, script, html , text) 
+		2. XML
+		
+		1. responseText : json, script, html , text
+		2. responseXml : xml
+	*/
+	$(function(){
+		$('#message').click(function(){
+			jQuery.ajax(
+				{
+					url : "Ex02_menu.html",
+					dataType : "html", //서버가 나에게 응답하는 데이터 형식 >> html
+					success : function(responsedata){
+						//서버가 응답한 코드 (200~299) 라면 (응답이 왔고 정상.....)
+						// Function(Anything data, String textStatus, jqXHR jqXHR )
+						//function(responsedata) 응답한 데이터만 받겠다.
+						
+						//개발자 마음 (가공)
+						$('#menudiv').html(responsedata);
+						
+						//KEY POINT
+						//가지고 온 데이터에서 li 태그 내용만 붙이고 싶다.
+						
+						//.find() : 선택된 요소의 자식노드에서 인자의 요소를 찾는다.
+						//$('#div').find(ul); 
+						//id div의 자식노드에서 ul 요소만 찾는다.
+						//.filter() 선택된 요소를 포함한 노드에서 인자의 요소를 찾는다
+						//$('#div').filter(ul);
+						//id div 노드 자신을 포함한 요소에서 ul 요소만 찾는다.
+						
+						//자식요소 검색
+						//$(this).children('li');
+						//$(this).find('li');
+						console.log($(responsedata).find('li').text());
+
+					}
+				}		
+			); //비동기 함수
+		});
+	});
+	</script>
+	<style type="text/css">
+	#menudiv{
+		width: 300px;
+		height: 300px;
+		margin: 3px;
+		float: left;
+		background-color: gold;
+	}
+	</style>
+</head>
+<body>
+	<div id="menudiv">
+		<a href="#" id="menu1">메뉴</a>
+		
+	</div> 
+	<span id="message">클릭하세요</span>
+</body>
+</html>

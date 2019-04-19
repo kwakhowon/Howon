@@ -5,14 +5,53 @@
 	<title>Insert title here</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
+	/*  
+		Jquery 통한 Ajax 작업 : xmlHttpRequest 객체를 활용하면
+		Jquery 통한 Ajax 사용 : 비동기 함수를 제공 받는다 (load())
+	
+		Jquery 제공하는 비동기(Ajax 함수)
+		1. Global Ajax Event Handlers >>3 , 4번 보조
+		2. Helper Functions >>3, 4번을 보조
+		3. Low-Level Interface(40%)
+		4. Shorthand Methods(50%)
+		
+		$(selector).load(URL,data,callback);
+		$(selector).load(URL,data,function(response, status, xhr)); 
+		
+		url Type: String
+		A string containing the URL to which the request is sent.
+		
+		data Type: PlainObject or String
+		A plain object or string that is sent to the server with the request.
+		
+		complete Type: Function( String responseText, String textStatus, jqXHR jqXHR )
+		A callback function that is executed when the request completes.
+		
+		load 함수
+		1. 서버에서 받는 데이터가 (html , text 형식)일때 사용
+		2. client 특정 요소 (element(div))에 삽입을 목적으로 (innerHTML , Jquery(html(), text()))
+		
+		data
+		$(selector).load(URL,data,callback);
+		data > {"msg":hello} > jsp?msg=hello
+				
+		load() 제일 간단하게
+		$('#display').load("Ex01_Ajax_load.jsp");
+	*/
 	$(function(){
 		$('#btn').click(function(){
 			$('#display').load("Ex01_Ajax_load.jsp",
 				{"msg" : $('#msg2').val()}, // ?msg =aaa
 				function(responseText, statusText, xhr){
+					//responseText : 서버가 응답한 결과값 (Text, xml)
+					//statuscode : 200 , 404 , 500 , 503 >> statusText 문자열
+					//			   (ok)  (not found)
+					// jquery 에서는 statusText == "success" or statusText == "error"
 					if(statusText == "success"){
+						//readystate == 4(응답이 왔고) && statuscode == 200~299 성공했다면 
 						alert("load success : 200~299 : " +responseText);
 					}else{
+						//readystate == 4(응답이 왔고) && statuscode != 200~299  >> statusText == "error"
 						alert("load fail : " +xhr.status + " : " +xhr.statusText);
 					}
 				}

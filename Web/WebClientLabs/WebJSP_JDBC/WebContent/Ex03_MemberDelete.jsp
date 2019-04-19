@@ -1,4 +1,3 @@
-<%@page import="com.sun.java.swing.plaf.windows.resources.windows"%>
 <%@page import="kr.or.kosta.utils.SingletonHelper"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
