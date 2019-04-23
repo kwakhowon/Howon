@@ -65,7 +65,7 @@ hp 객체 : ${vhp.data }<br>
 	hp.put("color","red");
 -->
 JSTL 사용해서 put 함수 구현<br>
-<c:set target="${vhp }" property="color" value="red"/>
+<c:set target="${vhp }" property="color" value="red"/> <!-- 속성 추가 -->
 hp객체 : ${vhp }
 </body>
 </html>

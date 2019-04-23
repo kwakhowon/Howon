@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('#btn').click(function(){
+				$.ajax(
+					{
+						url:"Ex09_Jsonlib_Emplist.jsp",
+						type:"get",
+						dataType:"json", //POINT
+						success:function(data){
+							console.log(data);
+							$.each(data,function(index,obj){
+								$('#emplist').append(
+								"<tr><td>"+index+"</td><td>"+obj.empno+"</td><td>"+
+								obj.ename+"</td><td>"+obj.sal+"</td><td>"+obj.job+"</td></tr>");
+							});
+							
+						},
+						error:function(xhr){
+							alert(xhr.status + ": ERROR");
+						}
+					}		
+				
+				);
+			});
+		});
+	</script>
+</head>
+<body>
+	<h3>EMP LIST</h3>
+	<input type="button" value="EmpList" id="btn">
+	<hr>
+	<table id="emplist" border="1">
+	</table>
+</body>
+</html>
+

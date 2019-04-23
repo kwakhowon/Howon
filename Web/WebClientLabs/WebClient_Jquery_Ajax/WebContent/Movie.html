@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style type="text/css">
+	#images{
+	margin : 10px;
+	flex: auto;
+	}
+	</style>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#rating').click(
+				function() {
+					var flikerAPI = "https://yts.am/api/v2/list_movies.json?";
+					//sort_by=rating&genre=action
+					$.getJSON(flikerAPI, {
+						sort_by : 'rating',
+						genre : $('#genre').val()
+					}, function(json) {
+						var movieList = json.data.movies;
+						console.log(movieList);
+						$('#images').empty();
+						$.each(movieList, function(index, obj) {
+							$('<img>').attr("src", obj.medium_cover_image)
+									.appendTo("#images");
+						});
+					});
+				});
+
+		$('#download').click(
+				function() {
+					var flikerAPI = "https://yts.am/api/v2/list_movies.json?";
+					//sort_by=rating&genre=action
+					$.getJSON(flikerAPI, {
+						sort_by : 'download_count',
+						genre : $('genre').val(),
+					}, function(json) {
+						var movieList = json.data.movies;
+						$('#images').empty();
+						$.each(movieList, function(index, obj) {
+							$('<img>').attr("src", obj.medium_cover_image)
+									.appendTo("#images");
+						});
+					});
+				});
+
+	});
+</script>
+</head>
+<body>
+	<select id="genre">
+		<option value="action">Action</option>
+		<option value="Drama">Drama</option>
+		<option value="Family">Family</option>
+		<option value="Adventure">Adventure</option>
+		<option value="History">History</option>
+	</select>
+ 	<input type="button" value="평점순 검색" id="rating">
+	<input type="button" value="다운로드 검색" id="download">
+	<hr>
+	<div id="images"></div>
+</body>
+</html>

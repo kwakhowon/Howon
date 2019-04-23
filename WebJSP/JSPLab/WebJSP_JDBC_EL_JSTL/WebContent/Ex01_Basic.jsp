@@ -28,7 +28,7 @@ EL : JSP 페이지에서 사용하는 스크립트 언어(화면에 출력 목�
 EL : JSP 페이지에서 화면 출력 목적 (% 녀석 없이 server 자원 출력)
 
 EL 스크립트 언어 (기본 객체를 제공)
-pageContext	 			 pageContext 객체 참조
+ pageContext	 		 pageContext 객체 참조
  pageScope				 page 영역 참조
  requestScope	 		 request 영역 참조
  sessionScope	 		 session 영역 참조
@@ -45,7 +45,7 @@ pageContext	 			 pageContext 객체 참조
 <hr>
 EL request value : ${requestScope.name }<br>
 EL request value : ${name }<br>
-원칙(고수) : EL session value : ${sessionScope.user };<br>
+원칙(고수) : EL session value : ${sessionScope.user }<br>
 EL session value (생략) : ${user }<br>
 <hr>
 기존 <%= id %>	

@@ -5,7 +5,7 @@
 <%@page import="java.sql.PreparedStatement" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="common/head.jsp"/>
 <link rel="stylesheet" href="css/Detail_Table.css">
 </head>
@@ -32,11 +32,26 @@
 
         rs = pstmt.executeQuery();
 
-        rs.next();
-    %>
+        
+        int row = 0;
+        while (rs.next()) {
+        	row = rs.getRow();
+        }
+        rs = pstmt.executeQuery();
+    %>	
+     
+    
     <form action="MemberEditok.jsp" method="post">
       <div style="margin-top: 100px;">
         <table class="container">
+    <c:forEach var="i" begin="1" end="<%= row%>">
+        <c:set var="next" value="<%= rs.next()%>"/>
+        <c:set var="id" value="<%= rs.getString(\"id\")%>" />
+        <c:set var="pwd" value="<%= rs.getString(\"pwd\")%>" />
+        <c:set var="name" value="<%= rs.getString(\"name\")%>" />
+        <c:set var="age" value="<%= rs.getString(\"age\")%>" />
+        <c:set var="email" value="<%= rs.getString(\"email\")%>" />
+        <c:set var="gender" value="<%= rs.getString(\"trim(gender)\")%>" />
           <tr>
             <td colspan="2">
               <div style="text-align:center; margin-bottom:40px;">
@@ -47,42 +62,39 @@
           <tr>
             <td>아이디</td>
             <td>
-              <input type="text" name="id" value="<%=rs.getString("id")%>" readonly>
+              <input type="text" name="id" value=${id } readonly>
             </td>
           </tr>
           <tr>
             <td>비번</td>
-            <td><%=rs.getString("pwd")%>
+            <td>${pwd }
             </td>
           </tr>
           <tr>
             <td>이름</td>
             <td>
-              <input type="text" name="name" value="<%=rs.getString("name")%>"
+              <input type="text" name="name" value="
+              ${name }"
                      style="background-color: gold">
             </td>
           </tr>
           <tr>
             <td>나이</td>
             <td>
-              <input type="text" name="age" value="<%=rs.getString("age")%>"
+              <input type="text" name="age" value="${age }"
                      style="background-color: gold">
             </td>
           </tr>
           <tr>
             <td>성별</td>
             <td>
-              [<%=rs.getString(5)%>]
-              <input type="radio" name="gender" id="female" value="F"
-                     <%if (rs.getString(5).equals("F")) {%>checked<%}%>>여자
-              <input type="radio" name="gender" id="male" value="M"
-                     <%if (rs.getString(5).equals("M")) {%>checked<%}%>>남자
+              ${gender }
             </td>
           </tr>
           <tr>
             <td>이메일</td>
             <td>
-              <input type="text" name="email" value="<%=rs.getString("email")%>"
+              <input type="text" name="email" value="${email }"
                      style="background-color: gold">
             </td>
           </tr>
@@ -91,6 +103,7 @@
               <input type="submit" value="수정하기">
               <a href='MemberList.jsp'>리스트 이동</a>
             </td>
+      </c:forEach>
         </table>
       </div>
     </form>

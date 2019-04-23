@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		$.ajax(
+		{
+			url:"Ex07_Ajax_board.json",
+			type:"POST", //xhr.open("POST", .....)
+			dataType:"json", //서버가 클라이언트에게 응답하는 데이터 형식
+			success:function(data){
+				console.log(data);
+			},
+			error:function(xhr){ //404, 500
+				alert(xhr.status);
+			}
+		}		
+		);
+	});
+	</script>
+</head>
+<body>
+	<table id="treedata" border="1"></table>
+</body>
+</html>
