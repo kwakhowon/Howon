@@ -1,6 +1,8 @@
 package com.board;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,7 +23,7 @@ public class FrontBoardController extends HttpServlet {
     //1. HttpServlet 제공하는 service() 함수
     //2. 별도의 사용자 정의 함수 생성해서 : doProcess()
     
-    private void doProcess(HttpServletRequest request, HttpServletResponse response, String method) {
+    private void doProcess(HttpServletRequest request, HttpServletResponse response, String method) throws ServletException, IOException {
     	//doGet 방식 , doPost 방식이던 실행되는 함수
     	System.out.println("클라이언트 요청 : " +method);
     	
@@ -73,7 +75,36 @@ public class FrontBoardController extends HttpServlet {
     		
     	}else if(cmd.equals("boardwrite")) {
     		viewpage = "/board/boardwrite.jsp";
+    	}else if(cmd.equals("login")) {
+    		viewpage = "/WEB-INF/login/login.jsp";
+    	}else {
+    		viewpage = "/error/error.jsp";
     	}
+    	
+    	//3. 결과 만들고 저장
+    	//가정 : List<Emp> list new ArrayList<>();
+    	//가정 : list.add(new Emp(2000,"김유신"));
+    	// ** request.setAttribute("emplist", list)
+    	
+    	//4. view 지정 > forward(request 객체 공유)
+    	
+    	RequestDispatcher dis =  request.getRequestDispatcher(viewpage);
+    	
+    	//5. view page forward 방식을 통해서 출력할 데이터를 전달(request)
+    	dis.forward(request, response);
+    	//servlet 가지고 있는 request 객체의 주소 >> view 전달 >> view 출력 .....
+    	
+    	//문제 : WebContent 폴더 안에 있는 파일은 ....
+    	//클라이언트의 직접적인 접근 가능
+    	//localhost:8090/WebServlet_1/board/boardlist.jsp
+    	//WebContent > WEB-INF 폴더(보안 폴더) > Client (404)
+    	
+    	//1. WEB-INF 접근 : 404 Error
+    	//2. WEB-INF 활용 : views >> board  > *.jsp
+    	//						>> member > *.jsp
+    	//						>> admin  > *.jsp
+    	//내부에서는 서로 접근이 가능
+    	//forward 접근 방식을 통해서 보안 폴더의 파일을 서비스 할 수 있다. 
     }
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
