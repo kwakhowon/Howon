@@ -14,7 +14,7 @@ $(document).ready(function(){
 	//"true" 사용가능
 	//"false" 사용불가 다시입력 ...
 	$('#message').click(function(){
-		if($('#id').val() == ""){
+	/* 	if($('#id').val() == ""){
 			alert("ID 입력하세요");
 			$('#id').focus();
 		}else{
@@ -37,6 +37,26 @@ $(document).ready(function(){
 					
 				}
 	
+			});
+		} */
+		if($('#id').val()==""){
+			alert("ID를 입력해주세요");
+			$('#id').focus();
+		}else{
+			$.ajax({
+				url:MemoId,
+				data : {id:$('#id').val()},
+				dataType:"text",
+				success : function(responsedata){
+					console.log(responsedata);
+					if(responsedata==="true"){
+						alert("사용가능");
+					}else{
+						alert("사용불가능");
+						$('#id').val("");
+						$('#id').focus();
+					}
+				}
 			});
 		}
 					

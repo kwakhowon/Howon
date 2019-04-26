@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang='en' class=''>
+<head>
+<script
+	src='https://static.codepen.io/assets/editor/live/console_runner-1df7d3399bdc1f40995a35209755dcfd8c7547da127f6469fd81e5fba982f6af.js'></script>
+<script
+	src='https://static.codepen.io/assets/editor/live/css_reload-5619dc0905a68b2e6298901de54f73cefe4e079f65a75406858d92924b4938bf.js'></script>
+<meta charset='UTF-8'>
+<meta name="robots" content="noindex">
+<link rel="shortcut icon" type="image/x-icon"
+	href="https://static.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
+<link rel="mask-icon" type=""
+	href="https://static.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg"
+	color="#111" />
+<link rel="canonical" href="https://codepen.io/pen/?&editable=true" />
+
+
+<style class="cp-pen-styles"></style>
+</head>
+<body>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/series-label.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
+	<script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+	<div id="container"
+		style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+	<script
+		src='https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js'></script>
+	<script id="rendered-js">
+		Highcharts
+				.chart(
+						'container',
+						{
+							chart : {
+								type : 'spline'
+							},
+
+							title : {
+								text : '우리나라 날씨'
+							},
+
+							subtitle : {
+								text : 'Source: WorldClimate.com'
+							},
+
+							xAxis : {
+								categories : [ 'Mon', 'Tue', 'Wed', 'Thu',
+										'Fri', 'Sat', 'Sun' ]
+							},
+
+							yAxis : {
+								title : {
+									text : 'Temperature'
+								},
+
+								labels : {
+									formatter : function() {
+										return this.value + '°';
+									}
+								}
+							},
+
+							tooltip : {
+								crosshairs : true,
+								shared : true
+							},
+
+							plotOptions : {
+								spline : {
+									marker : {
+										radius : 4,
+										lineColor : '#666666',
+										lineWidth : 1
+									}
+								}
+							},
+
+							series : [
+									{
+										name : 'High',
+										marker : {
+											symbol : 'square'
+										},
+
+										data : [
+												7.0,
+												6.9,
+												9.5,
+												14.5,
+												18.2,
+												21.5,
+												25.2
+											
+												 ]
+									},
+
+									{
+										name : 'Low',
+										marker : {
+											symbol : 'diamond'
+										},
+
+										data : [
+
+												4.2, 5.7, 8.5, 11.9, 15.2,
+												17.0, 16.6 ]
+									} ]
+						});
+		//# sourceURL=pen.js
+	</script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Document</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<style type="text/css">
+#container {
+  min-width: 320px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+</style>
+
+<script type="text/javascript">
+
+	$(function() {
+		
+		
+		
+		$('#btn').click(function() {
+			var moviename = [];
+			var audiAcc = [];
+							$.ajax({
+								
+										url : "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList",
+										dataType : "json",
+										type : "GET",
+										data : {
+											key :"59a9c6d4ba2c806658a23e8d35032fda",
+											targetDt : $('#sname').val()
+										},
+										success : function(data) {
+											var list = data.boxOfficeResult.dailyBoxOfficeList;
+											console.log(data);
+											console.log(list);
+											$.each(list , function(index, element){
+												var movie = element.movieNm;
+												var movieaudience = element.audiAcc;
+												audiAcc.push(Number(movieaudience));
+												moviename.push(movie);
+											
+											});
+											var chart = Highcharts.chart('container', {
+
+												  title: {
+												    text: '일별 박스오피스 순위'
+												  },
+
+												  subtitle: {
+												    text: '누적관객수'
+												  },
+
+												  xAxis: {
+												    categories: moviename
+												  },
+
+												  series: [{
+													    type: 'column',
+													    colorByPoint: true,
+													    data: audiAcc,
+													    showInLegend: false
+													  }]
+
+												});
+
+
+										}
+									});
+						});
+	});
+</script>
+
+</head>
+<body>
+	<input type="text" name="sname" id="sname">
+	<input type="button" value="날짜검색" id="btn">
+	<div id="container"></div>
+</body>
+</html>

@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Servlet 테스트</title>
-</head>
+</head>\
 <body>
 	<h3>servlet 요청하기</h3>
 	<h3>getContextPath() : <%= request.getContextPath()%></h3>

@@ -149,7 +149,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="WebJSP_JDBC_EL_JSTL" path="/WebJSP_JDBC_EL_JSTL" reloadable="true" source="org.eclipse.jst.jee.server:WebJSP_JDBC_EL_JSTL"/><Context docBase="WebJSP" path="/WebJSP" reloadable="true" source="org.eclipse.jst.jee.server:WebJSP"/><Context docBase="WebServlet_1" path="/WebServlet_1" reloadable="true" source="org.eclipse.jst.jee.server:WebServlet_1"/><Context docBase="WebServlet_2" path="/WebServlet_2" reloadable="true" source="org.eclipse.jst.jee.server:WebServlet_2"/><Context docBase="WebServlet_3" path="/WebServlet_3" reloadable="true" source="org.eclipse.jst.jee.server:WebServlet_3"/><Context docBase="WebServlet_4_memo_mvc" path="/WebServlet_4_memo_mvc" reloadable="true" source="org.eclipse.jst.jee.server:WebServlet_4_memo_mvc"/></Host>
+      <Context docBase="WebServlet_8_Member_Model2_MVC_Url_Interface" path="/WebServlet_7_Member_Model2_MVC_Url_Interface" reloadable="true" source="org.eclipse.jst.jee.server:WebServlet_8_Member_Model2_MVC_Url_Interface"/><Context docBase="WebServlet_5_memo_mvc_tomcat_dbcp" path="/WebServlet_5_memo_mvc_tomcat_dbcp" reloadable="true" source="org.eclipse.jst.jee.server:WebServlet_5_memo_mvc_tomcat_dbcp"/></Host>
     </Engine>
   </Service>
 </Server>

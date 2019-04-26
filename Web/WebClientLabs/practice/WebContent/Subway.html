@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function(){
+        $('#sname').click(function(){
+            $.ajax({
+                url:'http://openapi.tago.go.kr/openapi/service/SubwayInfoService/getKwrdFndSubwaySttnList',
+                dataType:"xml",
+                data : {
+                    ServiceKey : "E%2BrZQJW51Zykql4Oh0uwqbRunCkXUeGUx6NCyr1A1lEKOA7A7ptlpLP2pLEoWkhdleGrTR1Tb0AYxg%2Bl1P6YKg%3D%3D",
+                    subwayStationName : $('#sname')
+                },
+                success : function(data){
+                    $.each(data.items, function(index, element){
+                        console.log(element);
+                    });
+                }
+            });
+        });
+    });
+    </script>
+
+</head>
+<body>
+    <input type="text" name="sname" id="sname">
+    <input type="button" value="검색">
+    <div id="show"></div>
+</body>
+</html>

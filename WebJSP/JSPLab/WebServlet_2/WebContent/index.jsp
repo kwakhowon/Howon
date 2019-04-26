@@ -14,5 +14,7 @@
 	<br>
 	<a href="<%= request.getContextPath()%>/my.star">요청하기</a>
 	<br>
+	<a href="<%= request.getContextPath()%>/Now.action">요청하기</a>
+	<br>
 </body>
 </html>

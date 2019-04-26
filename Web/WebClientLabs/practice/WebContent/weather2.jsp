@@ -15,6 +15,7 @@
 			data : {
 				appid : "ddadc77332c563fcc15dc32c55d007d1",
 				id : 1835848,
+				units	 : "metric"
 			},
 			success : function(data) {
 				$.each(data.list, function(index, element){

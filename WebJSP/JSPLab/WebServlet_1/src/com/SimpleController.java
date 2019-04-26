@@ -20,8 +20,8 @@ java 파일로 [웹 서비스]를 할 목적으로 만든 파일 (SimpleControll
 3. SimpleController 서블릿은 이벤트 기반 동작
    (함수가 특정 상황에 맞추어서 자동 호출)
    [상황] : 클라이언트가 SimpleController 요청을 보냈을때
-   전송방식이 GET 으로 요청이 오면 자동으로 호출되는 함수 : protected void doGet
-   전송방식이 POST 으로 요청이 오면 자동으로 호출되는 함수: protected void doPost 
+      전송방식이 GET 으로 요청이 오면 자동으로 호출되는 함수 : protected void doGet
+     전송방식이 POST 으로 요청이 오면 자동으로 호출되는 함수: protected void doPost 
    doGET() ,doPOST() 공통점
    HttpServletRequest request, HttpServletResponse response
    parameter 제공 받으므로써 Parameter 받고 응답 도 가능하다

@@ -71,8 +71,8 @@ public class NowServlet extends HttpServlet {
 		out.print("<html>");
 		out.print("<head><title>hello</title></head>");
 		out.print("<body>");
-		out.print("현재 날짜 : "+new Date()+"<br>");
 		out.print("<script>alert('경고')</script>");
+		out.print("현재 날짜 : "+new Date()+"<br>");
 		out.print("</body>");
 		
 		out.print("</html>");
