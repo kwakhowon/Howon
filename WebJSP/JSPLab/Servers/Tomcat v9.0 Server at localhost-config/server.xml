@@ -149,7 +149,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="WebServlet_8_Member_Model2_MVC_Url_Interface" path="/WebServlet_7_Member_Model2_MVC_Url_Interface" reloadable="true" source="org.eclipse.jst.jee.server:WebServlet_8_Member_Model2_MVC_Url_Interface"/><Context docBase="WebServlet_5_memo_mvc_tomcat_dbcp" path="/WebServlet_5_memo_mvc_tomcat_dbcp" reloadable="true" source="org.eclipse.jst.jee.server:WebServlet_5_memo_mvc_tomcat_dbcp"/></Host>
+      <Context docBase="WebServlet_92_Session_Servlet" path="/WebServlet_92_Session_Servlet" reloadable="true" source="org.eclipse.jst.jee.server:WebServlet_92_Session_Servlet"/><Context docBase="Sample_Ajax_Single_Upload" path="/Sample_Ajax_Single_Upload" reloadable="true" source="org.eclipse.jst.jee.server:Sample_Ajax_Single_Upload"/><Context docBase="Sample_Emp_Dept_Crud_Modal" path="/Sample_Emp_Dept_Crud_Modal" reloadable="true" source="org.eclipse.jst.jee.server:Sample_Emp_Dept_Crud_Modal"/><Context docBase="Practice_Emp_Mvc" path="/Practice_Emp_Mvc" reloadable="true" source="org.eclipse.jst.jee.server:Practice_Emp_Mvc"/></Host>
     </Engine>
   </Service>
 </Server>
