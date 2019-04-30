@@ -7,35 +7,37 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class FrontEmpController
- */
+import kr.or.bit.action.Action;
+import kr.or.bit.action.ActionForward;
+
 @WebServlet("*.emp")
 public class FrontEmpController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public FrontEmpController() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+    protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	String requestURI = request.getRequestURI();
+    	String contextPath = request.getContextPath();
+    	String url_Command = requestURI.substring(contextPath.length());
+	
+    	Action action = null;
+    	ActionForward forward = null;
+    	
+    	if(url_Command.equals("/EmpAdd.emp")) {
+    		
+    	}
+    }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		doProcess(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		doProcess(request, response);
+		
 	}
 
 }
