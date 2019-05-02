@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> <!-- http://java.sun.com/jsp/jstl/core >> c로 대체 -->
 <%
-	 String id = request.getParameter("ID");
+	 String id = request.getParameter("id");
 	if(id.equals("hong")){
 %>
 	<%-- <%=id%><img src="images/login.png" alt="이미지" style="width: 100px;height: 100px"> --%>
@@ -22,8 +22,8 @@
 </head>
 <body>
 	<h3>EL 과 JSTL</h3>
-	<c:if test="${param.ID == 'hong' }"><!-- if(i>100){} -->
-	${param.ID} <img src="images/login.png" alt="이미지" style="width: 100px;height: 100px">
+	<c:if test="${param.id == 'hong' }"><!-- if(i>100){} -->
+	${param.id} <img src="images/login.png" alt="이미지" style="width: 100px;height: 100px">
 	</c:if>
 	 
 	 <!-- Client 에서 ?age =100 값을 받아서 age 값이 20 보다 큰 값이면 그 값을 출력하는 EL & JSTL 구문을 작성하세요 -->

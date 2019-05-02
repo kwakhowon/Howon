@@ -149,7 +149,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="WebServlet_93_FileUpload" path="/WebServlet_93_FileUpload" reloadable="true" source="org.eclipse.jst.jee.server:WebServlet_93_FileUpload"/><Context docBase="Sample_Emp_Dept_Crud_Modal" path="/Sample_Emp_Dept_Crud_Modal" reloadable="true" source="org.eclipse.jst.jee.server:Sample_Emp_Dept_Crud_Modal"/><Context docBase="IamGroot" path="/IamGroot" reloadable="true" source="org.eclipse.jst.jee.server:IamGroot"/><Context docBase="Sample_Ajax_Single_Upload" path="/Sample_Ajax_Single_Upload" reloadable="true" source="org.eclipse.jst.jee.server:Sample_Ajax_Single_Upload"/><Context docBase="Sample_Emp_Servlet_Command" path="/Sample_Emp_Servlet_Command" reloadable="true" source="org.eclipse.jst.jee.server:Sample_Emp_Servlet_Command"/><Context docBase="WebJSP_JDBC_EL_JSTL" path="/WebJSP_JDBC_EL_JSTL" reloadable="true" source="org.eclipse.jst.jee.server:WebJSP_JDBC_EL_JSTL"/></Host>
+      <Context docBase="WebServlet_97_Board_Model2_Mvc2_Reply_Ajax" path="/WebServlet_97_Board_Model2_Mvc2_Reply_Ajax" reloadable="true" source="org.eclipse.jst.jee.server:WebServlet_97_Board_Model2_Mvc2_Reply_Ajax"/><Context docBase="Sample_Book_WebBoardProject" path="/bbs" reloadable="true" source="org.eclipse.jst.jee.server:Sample_Book_WebBoardProject"/><Context docBase="IamGroot" path="/IamGroot" reloadable="true" source="org.eclipse.jst.jee.server:IamGroot"/></Host>
     </Engine>
   </Service>
 </Server>
