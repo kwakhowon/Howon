@@ -59,3 +59,46 @@ const add = (a,b) => a+b;
 
 
 console.log(add(1,2));
+
+// normal function vs . fat arrow --> this 방식이 완전히 다르다
+
+window.onload = function(){
+    let button = document.querySelector('button');
+
+    // context of this is determined when button clicks
+    function fn1(){
+        console.log(this);
+    }
+
+    // context of this is determined when reads code
+    let fn2 = () => console.log(this);
+
+    button.addEventListener('click', fn1);
+    button.addEventListener('click', fn2);
+}
+
+
+//default arguments
+let a = 20;
+function isEqualTo(number , compare = 10){
+    console.log(number);
+    console.log(compare);
+    return number === compare;
+};
+
+// not even undefined , undefined , value allocated
+console.log(isEqualTo(10));
+
+let name = 'Birman';
+let age2 = 30;
+let obj2 = {
+    //fileds, properties = key + value
+    "name" : 'Superman',
+    age2 : age2,
+    greet : function(){
+        console.log('hello');
+    }
+}
+
+console.log(obj2);
+console.log(obj2["name"]);
