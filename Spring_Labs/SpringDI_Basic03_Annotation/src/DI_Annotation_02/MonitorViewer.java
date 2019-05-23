@@ -18,7 +18,7 @@ public class MonitorViewer {
   */
   
   //2단계 : Annotation 기반 DI 작업(injection : 생성자 주입 , setter 주입)
-  //cnrkwjrdmfh member field 도 injection 가능하다
+  //추가적으로 member field 도 injection 가능하다
   
   //Autowired : IOC 컨데이너 안에 Recorder 타입을 가진 객체가 있다면
   //자동으로 그 객체의 주소를 받겠다.
