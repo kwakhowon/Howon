@@ -20,7 +20,7 @@ public class NewMemberDao implements MemberDao{
     this.jdbcTemplate = jdbcTemplate;
   }
 
-  public Member getMember(String uid) throws ClassNotFoundException, SQLException
+  public Member getMember(String userid) throws ClassNotFoundException, SQLException
 	{
     //코드는 select 컬럼명과 DTO가 가지는 memberfield명이 같지 않은 경우
     String sql = "select userid, pwd, name, gender, birth, is_lunnar, cphone, email, habit, regdate from member where userid =?";
@@ -72,4 +72,5 @@ public class NewMemberDao implements MemberDao{
       }
     });
 	}
+
 }

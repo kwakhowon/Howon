@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <style>
+        #container{
+            padding: 20px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <script type="text/babel">
+        class HelloWorld extends React.Component{
+            render(){
+                return(
+                    <div>
+                    <h1>Hello World</h1>
+                    </div>
+                );
+            }
+        }
+        class Square extends React.Component{
+            render(){
+                var squareStyle = {
+                    height : 150,
+                    backgroundColor : this.props.color
+                };
+                return(
+                    <div style={squareStyle}>
+                    </div>
+                );
+            }
+        }
+        class Label extends React.Component{
+            render(){
+                var labelStyle = {
+                    fontFamily : "sans-serif",
+                    fontWeight : "bold",
+                    padding : 13,
+                    margin : 0
+                };
+                return(
+                    <p style={labelStyle}>{this.props.color}</p>
+                );
+            }
+        }
+        class Card extends React.Component{
+            render(){
+                var cardStyle = {
+                    height : 200,
+                    width : 150,
+                    padding : 0,
+                    backgroundColor : "#fff",
+                    boxShadow : "0px 0px 5px #666"
+                };
+                return(
+                    <div style={cardStyle}>
+                    <Square color={this.props.color}/>
+                    <Label color={this.props.color}/>
+                    </div>
+                );
+            }
+        }
+
+        class Letter extends React.Component{
+            render(){
+                var letterStyle ={
+                    padding : 10,
+                    margin : 10,
+                    backgroundColor : this.props.bgcolor,
+                    color : "#333",
+                    display : "inline-block",
+                    fontFamily : "monospace",
+                    fontSize : 32,
+                    textAlign : "center"
+                };
+                return(
+                    <div style={letterStyle}>
+                        {this.props.children}
+                    </div>
+                );
+            }
+        }
+
+        class Stuff extends React.Component {
+            render(){
+                return (
+                    <React.Fragment>
+                    <p>I am</p>
+                    <p>returning a list</p>
+                    <p>of things!</p>
+                    </React.Fragment>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <div>
+             <HelloWorld />   
+            <Letter bgcolor="#58b3ff">A</Letter>
+            <Letter bgcolor="#ff605f">E</Letter>
+            <Letter bgcolor="#ffd52e">I</Letter>
+            <Letter bgcolor="#49dd8e">O</Letter>
+            <Letter bgcolor="#ae99ff">U</Letter>
+            <Card color="#ffa737"/>
+            <Circle bgColor="#F9C240" />
+            {theCircle}
+            </div>
+            document.querySelector("#container")
+        );
+    </script>
+</body>
+</html>

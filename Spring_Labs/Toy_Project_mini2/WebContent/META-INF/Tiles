@@ -1,0 +1,257 @@
+	Spring MVC Tiles 적용하기 텍스트
+	
+	Tiles Lib 사용하기
+	
+	1.공통영역 구성하기
+	-include 사용....(헤더 , 하단 , 메뉴)
+	->공통 페이지 (header.jsp, bottom.jsp , menu.jsp)
+	->content.jsp > 3개 jsp 가지고 와서
+	->board.jsp > 3개 jsp 가지고 와서 
+	
+	2.Master Page 설정을 통해서 공통페이지 구성
+	  Master Page -> header, bottom, menu
+	
+	3.Tiles Lib 사용해서 > (Spring)   
+	  라이브러리 > http://tiles.apache.org 
+	           사이트에서 다운로드 : tiles-2.2.2-bin.zip 
+	           상위버전 : 3.0.4 까지 ....
+	           
+	4.현재 프로젝트 공통영역이 구성되어 있지 않아요
+	  -공통영역분리
+	  -실제 공통영역 이미 분리하고 시작
+	
+	5.<jsp:include=""> 
+	
+	
+	6.Client 직접 JSP 파일에 접근 
+	  -WEB-INF > 안으로 이동 >views> 구조
+	  -WEB-INF >(X) css , image , htm,html .... 기존구조
+	
+	7.layout.jsp 페이지를 만들어서 => Master 페이지의 역활
+	
+	8.Tiles lib 추가하는 작업
+	
+	------------------------------------------------
+	1. WEB-INF > views 폴더생성
+	
+	2. WebContent (root context) > 기본 폴더 구조 
+	   > css, html , htm
+	3. WEB-INF > views > 안에 WebContent 동일한 구조 폴더 생성 (.jsp)
+	
+	4. 공통영역 구성
+	   WEB-INF > views > inc(최상위공통) : header , footer , layout
+	             views > customer > inc (폴더의 공통구조) : aside(navi) , visual, layout
+	             views > joinus   > inc (폴더의 공통구조) : aside(navi) , visual, layout
+	5. views > inc (header , footer ) 공통 레이아웃 설정
+	
+	5.1 ETC : index.jsp(views 폴더 안으로) 
+	          index.jsp 내용 삭제
+	
+	  
+	5.2 기존 jsp 파일에서 Main 부분만 남기고 공통영역 삭제하기
+	    -WEB-INF/views/Customer 폴더안에 jsp정리
+	    -WEB-INF/views/joinus 폴더안에 jsp정리
+	
+	---->
+	
+	6. Tiles 사이트에서 필요한 lib
+	   http://tiles.apache.org/2.2/framework/tutorial/basic/pages.html
+	   
+	----->    
+	7. Tiles 설정하기
+	   >Tiles.xml
+	 <?xml version="1.0" encoding="utf-8"?>
+	  <!DOCTYPE tiles-definitions PUBLIC
+	       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+	       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+	   <tiles-definitions>
+	    <definition>
+	   
+	    </definition>
+	   </tiles-definitions>     
+	    
+	    *여러개의 타일즈 파일 사용하기
+	     --일반 JSP 에서 
+	   <param-value>
+	       <!-- ,사이 공백 제거  -->
+	          /WEB-INF/tiles-hello.xml,/WEB-INF/tiles-menu.xml
+	   </param-value>
+	
+	8. Tiles.xml
+	   설정
+	   <definition name="customer.notice" template="/WEB-INF/views/customer/inc/layout.jsp">
+	    <put-attribute name="title"   value="kosta notice list" />
+	    <put-attribute name="header"  value="/WEB-INF/views/inc/header.jsp" />
+	    <put-attribute name="footer"  value="/WEB-INF/views/inc/footer.jsp" />
+	    <put-attribute name="aside"   value="/WEB-INF/views/customer/inc/aside.jsp" />
+	    <put-attribute name="visual"  value="/WEB-INF/views/customer/inc/visual.jsp" />
+	    <put-attribute name="content" value="/WEB-INF/views/customer/notice.jsp" />
+	  </definition>   
+	-------------------------------------------------------------
+	
+	--------------------------------------------------------------               
+	               
+	10. xml 설정하기
+	import org.springframework.web.servlet.view.tiles2.TilesConfigurer;
+	import org.springframework.web.servlet.view.UrlBasedViewResolver;
+	import org.springframework.web.servlet.view.tiles2.TilesView;
+	
+	<!--  Tiles 설정하기 -->
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+	 <property name="definitions">
+	  <list>
+	   <value>/WEB-INF/Tiles.xml</value>
+	  </list>
+	 </property>
+	</bean>
+	<bean id="urlBasedViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+	 <property name="viewClass" 
+	     value="org.springframework.web.servlet.view.tiles2.TilesView" />
+	</bean> 
+	<!--  Tiles 설정 END --> 
+	
+	
+	     
+	***********************설정방법***********************  
+	<!-- 그러면 위 처럼 모든 페이지마다 name="customer.noticeReg"  
+	       definition 을 페이지의 개수 만큼 ???
+	  
+	       해결방법 1
+	       회원가입 
+	     return "joinus/login"
+	     return "joinus/join"
+	     
+	     => 상속관계를 통한 설정하기
+	        
+	  -->
+	  <definition name="customer.noticeReg"  extends="customer.notice">
+	       <put-attribute name="content" value="/WEB-INF/views/customer/noticeReg.jsp" />
+	  </definition>
+	  <definition name="customer.noticeEdit"  extends="customer.notice">
+	       <put-attribute name="content" value="/WEB-INF/views/customer/noticeEdit.jsp" />
+	  </definition>
+	  
+	  ***Tiles 설정 참조 최종본****
+	
+	11. 이제 마스터 역활을 하는 Layout.jsp 페이지 수정하기
+	     customer  가지고 있는 layout.jsp(Master page)
+	     > <!-- header 영역 -->
+	  <tiles:insertAttribute name="header" />
+	  
+	12 Controller 단 수정하기
+	   controller 수정 return String view >
+	               > return "customer.notice"
+	               
+	               
+	               
+	               
+	============================================================               
+	
+	<?xml version="1.0" encoding="utf-8"?>
+	<!DOCTYPE tiles-definitions PUBLIC
+	       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+	       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+	 <tiles-definitions>
+	   <!-- 1단계 구성  
+	     단점 : 요청하는 JSP 개수 만큼 definition 만들어져 있어야 한다
+	    EX)  customer.notice    > content 구성 > notice.jsp
+	         customer.noticeReg > content 구성 > noticeReg.jsp
+	         
+	  -->
+	  
+	  <!-- <definition name="customer.notice" template="/WEB-INF/views/customer/inc/layout.jsp">
+	     <put-attribute name="title"   value="kosta notice list" />
+	     <put-attribute name="header"  value="/WEB-INF/views/inc/header.jsp" />
+	     <put-attribute name="footer"  value="/WEB-INF/views/inc/footer.jsp" />
+	     <put-attribute name="aside"   value="/WEB-INF/views/customer/inc/aside.jsp" />
+	     <put-attribute name="visual"  value="/WEB-INF/views/customer/inc/visual.jsp" />
+	     <put-attribute name="content" value="/WEB-INF/views/customer/notice.jsp" />
+	   </definition>
+	  <definition name="customer.noticeReg" template="/WEB-INF/views/customer/inc/layout.jsp">
+	     <put-attribute name="title"   value="kosta notice list" />
+	     <put-attribute name="header"  value="/WEB-INF/views/inc/header.jsp" />
+	     <put-attribute name="footer"  value="/WEB-INF/views/inc/footer.jsp" />
+	     <put-attribute name="aside"   value="/WEB-INF/views/customer/inc/aside.jsp" />
+	     <put-attribute name="visual"  value="/WEB-INF/views/customer/inc/visual.jsp" />
+	     <put-attribute name="content" value="/WEB-INF/views/customer/noticeReg.jsp" />
+	  </definition> -->
+	  
+	  <!-- 2단계 구성  
+	     단점 : 요청하는 JSP 개수 만큼 definition 만들어져 있어야 한다
+	     위 단점을 극복하기 위해서 중복자원은 쓰고 싶지 않다
+	     상속 개념을 정의해서 다름 부분분  재정의 해서 사용
+	   -->
+	  <!--   <definition name="customer.notice" template="/WEB-INF/views/customer/inc/layout.jsp">
+	     <put-attribute name="title"   value="kosta notice list" />
+	     <put-attribute name="header"  value="/WEB-INF/views/inc/header.jsp" />
+	     <put-attribute name="footer"  value="/WEB-INF/views/inc/footer.jsp" />
+	     <put-attribute name="aside"   value="/WEB-INF/views/customer/inc/aside.jsp" />
+	     <put-attribute name="visual"  value="/WEB-INF/views/customer/inc/visual.jsp" />
+	     <put-attribute name="content" value="/WEB-INF/views/customer/notice.jsp" />
+	   </definition>
+	   <definition name="customer.noticeReg"  extends="customer.notice">
+	     <put-attribute name="title"   value="kosta notice noticeReg" />
+	      <put-attribute name="content" value="/WEB-INF/views/customer/noticeReg.jsp" />
+	   </definition>   
+	    -->
+	   <!-- 3단계 구성  
+	     단점 : 요청하는 JSP 개수 만큼 definition 만들어져 있어야 한다
+	     위 단점을 극복하기 위해서 중복자원은 쓰고 싶지 않다
+	     상속 개념을 정의해서 다름 부분분  재정의 해서 사용
+	     
+	     위 상속 구조가 [폴더구조]가 복잡해지면서 역시 반복적인 구조가 나올수 밖에 없다
+	    
+	     패턴을 사용해 보자
+	     
+	      [패턴]으로 처리하기 
+	       게시판(customer.*) : 폴더 개념으로 접근
+	      customer.* => notice 
+	      customer.* => notcieReg 
+	      customer.* => noticeDetail 
+	      customer.* .*. * {1}{2}{3} 
+	      customer.a.b.c -> {1} -> a  , {2} -> b , {3} -> c
+	      
+	      **개발자가 UrlBase 구성을 아래처럼
+	      **UrlBase > customer.notice
+	                  customer.noticeReg
+	                  
+	                  joinus.join
+	      해결 > 조금 > 폴더구조 만큼    definition 파일이 생성            
+	   --> 
+	<!--      <definition name="customer.*" template="/WEB-INF/views/customer/inc/layout.jsp"> 
+	          <put-attribute name="title"   value="kosta notice list" />
+	          <put-attribute name="header"  value="/WEB-INF/views/inc/header.jsp" /> 
+	          <put-attribute name="footer"  value="/WEB-INF/views/inc/footer.jsp" /> 
+	          <put-attribute name="aside"   value="/WEB-INF/views/customer/inc/aside.jsp" /> 
+	          <put-attribute name="visual"  value="/WEB-INF/views/customer/inc/visual.jsp" /> 
+	          <put-attribute name="content" value="/WEB-INF/views/customer/{1}.jsp" /> 
+	         </definition> 
+	         <definition name="joinus.*" template="/WEB-INF/views/joinus/inc/layout.jsp"> 
+	          <put-attribute name="title"  value="kosta notice list" /> 
+	          <put-attribute name="header" value="/WEB-INF/views/inc/header.jsp" /> 
+	          <put-attribute name="footer" value="/WEB-INF/views/inc/footer.jsp" /> 
+	          <put-attribute name="aside"  value="/WEB-INF/views/joinus/inc/aside.jsp" /> 
+	          <put-attribute name="visual" value="/WEB-INF/views/joinus/inc/visual.jsp" /> 
+	          <put-attribute name="content" value="/WEB-INF/views/joinus/{1}.jsp" /> 
+	         </definition>  -->
+	   
+	   
+	       <!-- 최종본 패턴을 사용 -->
+	       <!--  return home.index  -->
+	         <definition name="home.*" template="/WEB-INF/views/inc/layout.jsp"> 
+	            <put-attribute name="header"  value="/WEB-INF/views/inc/header.jsp" /> 
+	          <put-attribute name="footer" value="/WEB-INF/views/inc/footer.jsp" /> 
+	          <put-attribute name="content" value="/WEB-INF/views/{1}.jsp" /> 
+	         </definition>
+	      <definition name="*.*" template="/WEB-INF/views/{1}/inc/layout.jsp"> 
+	          <put-attribute name="title"  value="wecome to kosta" /> 
+	          <put-attribute name="css" value="{2}.css" />
+	          <put-attribute name="header"  value="/WEB-INF/views/inc/header.jsp" /> 
+	          <put-attribute name="footer"  value="/WEB-INF/views/inc/footer.jsp" />
+	          <put-attribute name="aside"   value="/WEB-INF/views/{1}/inc/aside.jsp" />
+	          <put-attribute name="visual"  value="/WEB-INF/views/{1}/inc/visual.jsp" />
+	          <put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" />
+	         </definition> 
+	 </tiles-definitions>  
+	
+	

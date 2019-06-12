@@ -11,4 +11,5 @@ public interface MemberDao {
   //회원가입
   public int insert(Member member) throws ClassNotFoundException, SQLException;
   
+  //로그인
 }
