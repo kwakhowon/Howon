@@ -12,11 +12,13 @@
 	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 <script
 	src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
-<link
+<!-- <link
 	href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.css"
-	rel="stylesheet">
+	rel="stylesheet"> -->
 <script
 	src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.js"></script>
+<script src="//cdn.ckeditor.com/4.11.4/full/ckeditor.js"></script>
+<script src="${pageContext.request.contextPath}/resources/common/js/ckeditor.js"></script>
 <style type="text/css">
 .textarea {
 	line-height: 20px;
@@ -35,7 +37,7 @@
 }
 </style>
 <script>
-	$(document).ready(function() {
+	 $(document).ready(function() {
 		var HelloButton = function (context) {
 	        var ui = $.summernote.ui;
 	  
@@ -70,7 +72,7 @@
 	  return button2.render();   // return button as jquery object 
 	}
 
-	$('#notes').summernote({
+	/* $('#notes').summernote({
 	    
 	    minHeight: 200,
 	    placeholder : "code를 입력해주세요",
@@ -107,7 +109,7 @@
 	                buttons: {
 	                    hello: HelloButton2
 	                }
-	});
+	});  */
 		$('#save').click(function() {
 			var textnote = $('textarea[name=contentIn]').val();
 
@@ -129,13 +131,11 @@
 	<br>
 	<a href="emptable.htm">emp Table 보기</a>
 	<div style="display: grid;">
-		<div style="display: grid; grid-column-start: 3; grid-column-end: 4;">
-			<textarea name="contentIn" id="notes2"></textarea>
-			<input type="button" id="save" value="저장">
+		<div style="display: grid; grid-column-start: 1; grid-column-end: 2;">
+			<textarea name="content" id="content" class="ckeditor" rows="10" cols="80"></textarea>
 		</div>
 	</div>
-		<div style="display: grid; grid-column-start: 1; grid-column-end: 2;">
-			<textarea name="content" id="notes"></textarea>
-		</div>
 </body>
+<script src="${pageContext.request.contextPath}/resources/common/js/ckeditor.js"></script>
+
 </html>
